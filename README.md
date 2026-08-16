@@ -2,7 +2,7 @@
 
 A web-based commemorative experience for the **former Shire of Creswick Avenue of Honour at Kingston**. After the first introduction, the project uses the name **Kingston Avenue of Honour** to make it easier for visitors to recognise and search for the Avenue.
 
-This project was developed as part of the **ITECH3208 Project 1** work and has been updated through **Sprint 2**.
+This project was developed as part of the **ITECH3208 Project 1** work and has been updated through **Sprint 3**.
 
 ---
 
@@ -153,6 +153,27 @@ Developed by the ITECH3208 Project 1 team for the Kingston Avenue of Honour virt
 
 ---
 
+
+## Sprint 3 Updates
+
+Sprint 3 focused on improving the interaction between the 360° virtual tour and the commemorative trees along the Kingston Avenue of Honour.
+
+Completed Sprint 3 work included:
+
+- Added numbered interactive hotspots directly inside the 360° panoramas.
+- Positioned tree hotspots on the corresponding trees using panorama pitch and yaw coordinates.
+- Connected each numbered hotspot to the existing tree and profile data.
+- Enabled visitors to click a numbered tree hotspot to open the commemorated person's detail card.
+- Reused the shared `TREES` dataset to avoid duplicate profile information.
+- Improved hotspot visibility using the existing autumn gold, orange, red and green colour scheme.
+- Preserved the existing five-stop self-drive virtual tour.
+- Maintained the Nearby Trees panel as an additional way to access tree information.
+- Improved hotspot interaction so selecting a tree does not interfere with panorama navigation.
+- Added support for manual hotspot positioning through `TREE_HOTSPOT_OVERRIDES`.
+- Used developer mode (`?dev`) to assist with accurate pitch and yaw positioning of tree markers.
+
+Sprint 3 improves the connection between the physical trees visible in the Avenue panoramas and the historical information associated with each commemorated person.
+
 ## Current Status
 
-Sprint 2 is complete. The project now includes a five-stop self-drive virtual tour, updated client-requested colours, improved navigation, updated website wording, and a clearer presentation-ready experience.
+Sprint 3 is complete. The project now includes numbered interactive tree hotspots positioned within the 360° panoramas. Visitors can select a tree marker to view the associated commemorative profile while continuing to explore the existing five-stop self-drive virtual tour.

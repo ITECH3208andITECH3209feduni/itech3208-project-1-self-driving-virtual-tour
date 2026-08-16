@@ -235,51 +235,202 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
   0%,100%{filter:drop-shadow(0 6px 10px rgba(0,0,0,0.55));}
   50%{filter:drop-shadow(0 12px 14px rgba(0,0,0,0.4));}
 }
-/* ────── TREE HOTSPOTS (clickable trees in panorama) ────── */
-/* Each tree hotspot is a small pulsing leaf-marker. On hover it
-   reveals the tree number; on click it opens the soldier profile
-   card overlay. */
-.pnlm-hotspot.tree-hotspot{
-  width:38px !important;height:38px !important;
-  background:rgba(139,32,32,0.92) !important;
-  border:2.5px solid #fff;border-radius:50%;
-  margin:-19px 0 0 -19px;cursor:pointer;
-  box-shadow:0 4px 14px rgba(0,0,0,0.5), 0 0 0 0 rgba(184,133,42,0.55);
-  animation:treePulse 2.6s ease-in-out infinite;
-  display:flex;align-items:center;justify-content:center;
-  transition:transform 0.2s ease;
+
+
+.tree-hotspot,
+.pnlm-hotspot.tree-hotspot {
+    width: 34px !important;
+    height: 34px !important;
+
+    margin-left: -17px !important;
+    margin-top: -17px !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    cursor: pointer !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    /* DO NOT ADD transform HERE */
 }
-.pnlm-hotspot.tree-hotspot::after{
-  content:'';
-  width:14px;height:14px;
-  background:#fff;border-radius:50%;
-  box-shadow:inset 0 0 0 3px rgba(139,32,32,0.92);
+
+
+/* Remove any default Pannellum graphic */
+.tree-hotspot::before,
+.tree-hotspot::after,
+.pnlm-hotspot.tree-hotspot::before,
+.pnlm-hotspot.tree-hotspot::after {
+    content: none !important;
+    display: none !important;
 }
-.pnlm-hotspot.tree-hotspot.fallen{
-  background:rgba(139,32,32,1) !important;
-  animation:treePulseFallen 2.2s ease-in-out infinite;
+
+
+/* =========================================
+   Actual visible numbered circle
+   ========================================= */
+
+.tree-hotspot-number {
+    width: 34px !important;
+    height: 34px !important;
+
+    border-radius: 50% !important;
+
+    background: #b8852a !important;
+
+    border: 2px solid #ffffff !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    color: #ffffff !important;
+
+    font-family: Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.55),
+        0 0 0 3px rgba(184,133,42,0.28) !important;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,0.55);
+
+    pointer-events: none;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
 }
-.pnlm-hotspot.tree-hotspot.nurse{
-  background:rgba(184,133,42,0.92) !important;
+
+
+/* IMPORTANT:
+   Scale the INNER CIRCLE,
+   NOT the Pannellum hotspot container.
+*/
+.tree-hotspot:hover .tree-hotspot-number,
+.tree-hotspot:focus .tree-hotspot-number {
+    transform: scale(1.18);
+
+    background: #d4a84b !important;
+
+    box-shadow:
+        0 4px 14px rgba(0,0,0,0.62),
+        0 0 0 4px rgba(212,168,75,0.30) !important;
 }
-.pnlm-hotspot.tree-hotspot.nurse::after{
-  box-shadow:inset 0 0 0 3px rgba(184,133,42,1);
+
+
+/* Fallen */
+.tree-hotspot.fallen .tree-hotspot-number {
+    background: #a63a2a !important;
 }
-.pnlm-hotspot.tree-hotspot:hover{
-  transform:scale(1.18);
-  animation:none;
-  background:rgba(184,133,42,1) !important;
+
+
+/* Nurse */
+.tree-hotspot.nurse .tree-hotspot-number {
+    background: #c86b22 !important;
 }
-.pnlm-hotspot.tree-hotspot:hover::after{
-  box-shadow:inset 0 0 0 3px rgba(212,168,75,1);
+
+
+/* Hover colour */
+.tree-hotspot.fallen:hover .tree-hotspot-number,
+.tree-hotspot.nurse:hover .tree-hotspot-number {
+    background: #d4a84b !important;
 }
-@keyframes treePulse{
-  0%,100%{box-shadow:0 4px 14px rgba(0,0,0,0.5), 0 0 0 0 rgba(139,32,32,0.55);}
-  50%{box-shadow:0 4px 14px rgba(0,0,0,0.5), 0 0 0 14px rgba(139,32,32,0);}
+
+
+/* =========================================
+   Optional label above marker
+   ========================================= */
+
+.tree-hotspot-label {
+    position: absolute !important;
+
+    left: 50% !important;
+    bottom: calc(100% + 8px) !important;
+
+    transform: translateX(-50%) !important;
+
+    display: none !important;
+
+    width: max-content !important;
+    max-width: 260px !important;
+
+    padding: 6px 10px !important;
+
+    background: rgba(15,28,17,0.96) !important;
+
+    border: 1px solid rgba(184,133,42,0.55) !important;
+
+    border-radius: 6px !important;
+
+    color: #ffffff !important;
+
+    font-family: var(--fb) !important;
+    font-size: 12px !important;
+
+    white-space: nowrap !important;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.42) !important;
+
+    pointer-events: none !important;
 }
-@keyframes treePulseFallen{
-  0%,100%{box-shadow:0 4px 14px rgba(0,0,0,0.5), 0 0 0 0 rgba(220,38,38,0.6);}
-  50%{box-shadow:0 4px 14px rgba(0,0,0,0.5), 0 0 0 18px rgba(220,38,38,0);}
+
+
+.tree-hotspot:hover .tree-hotspot-label,
+.tree-hotspot:focus .tree-hotspot-label {
+    display: block !important;
+}
+
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media(max-width:700px) {
+
+    .tree-hotspot,
+    .pnlm-hotspot.tree-hotspot {
+        width: 40px !important;
+        height: 40px !important;
+
+        margin-left: -20px !important;
+        margin-top: -20px !important;
+    }
+
+    .tree-hotspot-number {
+        width: 40px !important;
+        height: 40px !important;
+
+        font-size: 15px !important;
+    }
+}
+/* Larger touch target on phones / tablets. */
+@media(max-width:700px){
+  .tree-hotspot{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    min-height:36px !important;
+    margin-left:-18px !important;
+    margin-top:-18px !important;
+  }
+
+  .tree-hotspot .tree-hotspot-number,
+  .pnlm-tooltip.tree-hotspot .tree-hotspot-number,
+  .pnlm-tooltip .tree-hotspot .tree-hotspot-number{
+    font-size:15px !important;
+  }
 }
 
 /* Tooltip label shown on hover (Pannellum auto-injects tooltip span) */
@@ -523,7 +674,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 
   
 
-/* ───── Sprint 2 presentation upgrades ───── */
+
 .nearby-card{position:fixed;right:1.5rem;bottom:6.4rem;z-index:540;width:310px;background:rgba(15,28,17,0.92);border:1px solid rgba(184,133,42,0.38);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;}
 .nearby-head{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-bottom:1px solid rgba(184,133,42,.18);}
 .nearby-title{font-family:var(--fd);font-size:1rem;color:#fff;font-weight:700;}
@@ -624,7 +775,6 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
   color:var(--client-red);
 }
 ::selection{background:var(--client-yellow);color:#122818;}
-
 </style>
 </head>
 <body>
@@ -939,7 +1089,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     // already in script.js (the same source that powers the tree map):
     //
     //   • trees are sorted north → south by latitude
-    //   • the sorted list is split across the 3 stops (each stop gets
+    //   • the sorted list is split across all 5 tour stops (each stop gets
     //     its share of trees from that section of the avenue)
     //   • within a stop: WEST-side trees appear on the LEFT of the
     //     panorama (negative yaw), EAST-side trees on the RIGHT
@@ -949,9 +1099,48 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     // will use those pitch/yaw values instead of the auto-calculated
     // ones. Use ?dev in the URL to click a tree and capture exact
     // coordinates, then add an override entry.
-    var TREE_HOTSPOT_OVERRIDES = {
-      // Example: 1: { stop: 1, pitch: -3, yaw: -42 },
-      // Add entries here after dialling in positions with ?dev mode.
+        var TREE_HOTSPOT_OVERRIDES = {
+      // STOP 1
+      1: { stop: 1, pitch: 2.23, yaw: -139.34 },
+      2: { stop: 1, pitch: 4.8, yaw: 40.66 },
+      3: { stop: 1, pitch: 8.55, yaw: -59.41 },
+      4: { stop: 1, pitch: 7.38, yaw: 96.8 },
+      5: { stop: 1, pitch: 6.8, yaw: -29.3 },
+      25: { stop: 1, pitch: 3.75, yaw: 7.62 },
+      26: { stop: 1, pitch: 3.0, yaw: -125.0 },
+      27: { stop: 1, pitch: 6.45, yaw: 117.66 },
+      // STOP 2
+      6: { stop: 2, pitch: 4.92, yaw: 45.94 },
+      7: { stop: 2, pitch: 4.57, yaw: -137.7 },
+      8: { stop: 2, pitch: 7.0, yaw: 110.0 },
+      9: { stop: 2, pitch: 2.23, yaw: -54.84 },
+      10: { stop: 2, pitch: 9.84, yaw: 139.22 },
+      28: { stop: 2, pitch: 4.34, yaw: -84.84 },
+      29: { stop: 2, pitch: 7.27, yaw: 80.62 },
+      // STOP 3
+      11: { stop: 3, pitch: 2.81, yaw: -136.05 },
+      12: { stop: 3, pitch: 0.82, yaw: 45.0 },
+      13: { stop: 3, pitch: 9.96, yaw: -90.7 },
+      14: { stop: 3, pitch: 7.03, yaw: 90.59 },
+      15: { stop: 3, pitch: 3.28, yaw: -48.63 },
+      30: { stop: 3, pitch: 6.0, yaw: -125.0 },
+      31: { stop: 3, pitch: 0.59, yaw: 123.87 },
+      // STOP 4
+      16: { stop: 4, pitch: 0.62, yaw: 60.12 },
+      17: { stop: 4, pitch: 10.55, yaw: -97.73 },
+      18: { stop: 4, pitch: 8.17, yaw: 124.89 },
+      19: { stop: 4, pitch: 2.72, yaw: -62.23 },
+      20: { stop: 4, pitch: 6.94, yaw: 160.05 },
+      32: { stop: 4, pitch: 7.29, yaw: -29.44 },
+      33: { stop: 4, pitch: 9.76, yaw: 92.64 },
+      // STOP 5
+      21: { stop: 5, pitch: 1.93, yaw: -140.98 },
+      22: { stop: 5, pitch: 7.91, yaw: 43.42 },
+      23: { stop: 5, pitch: 1.58, yaw: -47.72 },
+      24: { stop: 5, pitch: 2.37, yaw: 139.66 },
+      34: { stop: 5, pitch: 2.9, yaw: -131.13 },
+      35: { stop: 5, pitch: 2.72, yaw: 75.32 },
+      36: { stop: 5, pitch: 7.0, yaw: 160.0 }
     };
 
     function buildTreeHotspots() {
@@ -1006,11 +1195,68 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         result[sceneKey].push({ treeId: tree.id, pitch: pitch, yaw: yaw });
       });
 
+    
+      Object.keys(result).forEach(function(sceneKey) {
+        result[sceneKey].forEach(function(h, index) {
+          h.number = index + 1;
+        });
+      });
+
       return result;
     }
 
     var TREE_HOTSPOTS = buildTreeHotspots();
 
+
+function createTreeNumberHotspot(hotSpotDiv, args) {
+
+  // IMPORTANT:
+  // Explicitly apply our custom hotspot class.
+  hotSpotDiv.classList.add('tree-hotspot');
+
+  // Apply optional status classes.
+  if (args.fallen) {
+    hotSpotDiv.classList.add('fallen');
+  }
+
+  if (args.nurse) {
+    hotSpotDiv.classList.add('nurse');
+  }
+
+  // Remove anything Pannellum may already have inserted.
+  hotSpotDiv.innerHTML = '';
+
+  // Create only the visible number.
+  var number = document.createElement('span');
+
+  number.className = 'tree-hotspot-number';
+  number.textContent = args.number;
+
+  hotSpotDiv.appendChild(number);
+
+  // Store full information as browser tooltip / accessibility label.
+  var label =
+    'Tree ' + args.treeNum +
+    ' — ' + args.name;
+
+  hotSpotDiv.setAttribute('title', label);
+  hotSpotDiv.setAttribute('aria-label', label);
+  hotSpotDiv.setAttribute('role', 'button');
+  hotSpotDiv.setAttribute('tabindex', '0');
+
+  // Keyboard support.
+  hotSpotDiv.addEventListener('keydown', function(e) {
+
+    if (e.key === 'Enter' || e.key === ' ') {
+
+      e.preventDefault();
+
+      hotSpotDiv.click();
+
+    }
+
+  });
+} 
     // ── Soldier profile card: show / hide ──────────────────────────
     function showSoldierCard(treeId) {
       if (typeof TREES === 'undefined') {
@@ -1106,15 +1352,16 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
           });
         }
 
-        // Add per-scene TREE hotspots (clickable soldiers)
+        // Add every tree assigned to this panorama as a numbered hotspot.
+        // The Nearby Trees card can still show only its compact 3-item list;
+        // this panorama itself is no longer limited to three tree markers.
         var sceneKey = 'stop' + (i + 1);
-        var trees = (TREE_HOTSPOTS[sceneKey] || []).slice(0, 3);
+        var trees = (TREE_HOTSPOTS[sceneKey] || []);
         trees.forEach(function(h) {
-          // Look up the matching tree to set tooltip text + visual style
           var tree = (typeof TREES !== 'undefined')
             ? TREES.find(function(x){ return x.id === h.treeId; })
             : null;
-          if (!tree) return;  // skip silently if no matching tree record
+          if (!tree) return;
 
           var classes = 'tree-hotspot';
           if (tree.fallen) classes += ' fallen';
@@ -1124,8 +1371,17 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
             pitch: h.pitch,
             yaw: h.yaw,
             type: 'info',
-            text: 'Tree ' + tree.treeNum + ' — ' + tree.name,
             cssClass: classes,
+
+            // Creates the visible 1, 2, 3... marker on the actual tree.
+            createTooltipFunc: createTreeNumberHotspot,
+            createTooltipArgs: {
+              number: h.number,
+              treeNum: tree.treeNum,
+              name: tree.name
+            },
+
+            // Reuse the existing detail card and shared TREES data.
             clickHandlerFunc: function(treeId){
               return function(){ showSoldierCard(treeId); };
             }(h.treeId)
@@ -1501,3 +1757,6 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
   </script>
 </body>
 </html>
+
+
+
