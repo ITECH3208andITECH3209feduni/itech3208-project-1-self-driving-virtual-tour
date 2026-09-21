@@ -274,8 +274,8 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
    ========================================= */
 
 .tree-hotspot-number {
-    width: 34px !important;
-    height: 34px !important;
+    width: 24px !important;
+    height: 24px !important;
 
     border-radius: 50% !important;
 
@@ -290,7 +290,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
     color: #ffffff !important;
 
     font-family: Arial, sans-serif !important;
-    font-size: 11px !important;
+    font-size: 9px !important;
     font-weight: 700 !important;
 
     line-height: 1 !important;
@@ -401,18 +401,18 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 
     .tree-hotspot,
     .pnlm-hotspot.tree-hotspot {
-        width: 40px !important;
-        height: 40px !important;
+        width: 30px !important;
+        height: 30px !important;
 
-        margin-left: -20px !important;
-        margin-top: -20px !important;
+        margin-left: -15px !important;
+        margin-top: -15px !important;
     }
 
     .tree-hotspot-number {
-        width: 40px !important;
-        height: 40px !important;
+        width: 30px !important;
+        height: 30px !important;
 
-        font-size: 15px !important;
+        font-size: 11px !important;
     }
 }
 /* Larger touch target on phones / tablets. */
@@ -1076,7 +1076,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         stop: 'Avenue Southern Section â€” Kingston Road',
         desc: 'Continue through the southern section of the Avenue of Honour, following Kingston Road and viewing the next group of memorial trees.',
         panorama: STOP4_IMG,
-        hfov: 100, pitch: 0, yaw: 0
+        hfov: 100, pitch: 11, yaw: -56
       },
       {
         name: 'Avenue Final Stop',
@@ -1111,24 +1111,33 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         28: { stop: 2, pitch: 4.34, yaw: -84.84 },
         29: { stop: 2, pitch: 7.27, yaw: 80.62 },
         // STOP 3
-        30: { stop: 3, pitch: 6.0, yaw: -125.0 },
-        31: { stop: 3, pitch: 0.59, yaw: 123.87 },
+        180: { stop: 3, pitch:  6.21, yaw: -13.01 },
+        228: { stop: 3, pitch:  6.21, yaw: 108.28 },
+         64: { stop: 3, pitch:  2.70, yaw:   3.98 },
+         82: { stop: 3, pitch: -1.99, yaw:  58.48 },
+         81: { stop: 3, pitch:  3.87, yaw:  46.17 },
         // STOP 4
-      16: { stop: 4, pitch: 0.62, yaw: 60.12 },
-      17: { stop: 4, pitch: 10.55, yaw: -97.73 },
-      18: { stop: 4, pitch: 8.17, yaw: 124.89 },
-      19: { stop: 4, pitch: 2.72, yaw: -62.23 },
-      20: { stop: 4, pitch: 6.94, yaw: 160.05 },
-      32: { stop: 4, pitch: 7.29, yaw: -29.44 },
-      33: { stop: 4, pitch: 9.76, yaw: 92.64 },
+      16:  { stop: 4, pitch:  8.26, yaw: -73.21 },
+      20:  { stop: 4, pitch: 11.78, yaw:  10.28 },
+      19:  { stop: 4, pitch:  8.50, yaw:  46.20 },
+      50:  { stop: 4, pitch:  2.52, yaw:  51.90 },
+      145: { stop: 4, pitch:  2.70, yaw:  72.80 },
+      195: { stop: 4, pitch:  9.14, yaw:  39.73 },
+      126: { stop: 4, pitch:  1.69, yaw:  78.34 },
+      165: { stop: 4, pitch:  2.99, yaw:  95.10 },
+      66:  { stop: 4, pitch:  2.99, yaw: 124.98 },
+      100: { stop: 4, pitch:  1.23, yaw: 176.84 },
       // STOP 5
-      21: { stop: 5, pitch: 1.93, yaw: -140.98 },
-      22: { stop: 5, pitch: 7.91, yaw: 43.42 },
-      23: { stop: 5, pitch: 1.58, yaw: -47.72 },
-      24: { stop: 5, pitch: 2.37, yaw: 139.66 },
-      34: { stop: 5, pitch: 2.9, yaw: -131.13 },
-      35: { stop: 5, pitch: 2.72, yaw: 75.32 },
-      36: { stop: 5, pitch: 7.0, yaw: 160.0 }
+      22:  { stop: 5, pitch: 4.20, yaw: -41.64 },
+      24:  { stop: 5, pitch: 5.20, yaw: -10.81 },
+      42:  { stop: 5, pitch: 3.20, yaw:  72.20 },
+      146: { stop: 5, pitch: 2.20, yaw: 107.50 },
+      73:  { stop: 5, pitch: 6.00, yaw: 121.00 },
+      23:  { stop: 5, pitch: 4.50, yaw:  40.58 },
+      51:  { stop: 5, pitch: 4.50, yaw:  78.70 },
+      149: { stop: 5, pitch: 3.00, yaw:  85.00 },
+      55:  { stop: 5, pitch: 5.00, yaw: 112.50 },
+      56:  { stop: 5, pitch: 8.50, yaw: 139.40 }
     };
 
     function buildTreeHotspots() {
@@ -1172,39 +1181,46 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         { treeId: 11, pitch:  3.87, yaw:  16.29, number: '17' },  // West 35 - Bertram Louis Chambers
         { treeId: 13, pitch:  3.05, yaw:  12.77, number: '19' }   // West 39 - William M. Boadle
       ],
-        // STOP 3: 5 hotspots (numbers 21 to 25)
-        // #21 on left tree; #22, #23, #24, #25 on right side along road (#23 near #24, #25 same side)
+        // STOP 3: 5 hotspots (numbers 21 to 25) centered on the exact middle of the trees
         stop3: [
-          // Left side (East) - number: 21
-          { treeId: 14, pitch:  8.20, yaw: -38.50, number: '21' },  // East 44 - Margaret Agnes Fogarty
-
-          // Right side (along road) - numbers: 22, 23, 24, 25
-          { treeId: 15, pitch:  7.10, yaw:  42.00, number: '22' },  // West 48 - Arthur Francis Hogan
-          { treeId: 16, pitch:  5.50, yaw:  34.00, number: '23' },  // East 52 - George Ernest Lacey (near #24)
-          { treeId: 17, pitch:  4.60, yaw:  28.00, number: '24' },  // West 57 - Edwin Albert McCrae
-          { treeId: 18, pitch:  6.50, yaw:  38.00, number: '25' }   // East 60 - Reginald John Farrow (same side as #24)
+          // Tree 1 (User Image 1): Standalone elm in the open grass field
+          { treeId: 180, pitch:  6.21, yaw: -13.01, number: '21' },  // East 44 - Stanley Miller
+          // Tree 2 (User Image 2): Mature elm with dark trunk in front of house/hedge
+          { treeId: 228, pitch:  6.21, yaw: 108.28, number: '22' },  // West 48 - Eric Claude White
+          // Tree 3 (User Image 3): Elm with yellowing canopy & white post to its right
+          { treeId:  64, pitch:  2.70, yaw:   3.98, number: '23' },  // East 52 - Lennon Edwin Coulson
+          // Tree 4 (User Image 4): Large roadside elm beside wheelie bins & white post
+          { treeId:  82, pitch: -1.99, yaw:  58.48, number: '24' },  // West 57 - Allen Dimond
+          // Tree 5 (User Image 5): Roadside elm further along road beside guy-wire
+          { treeId:  81, pitch:  3.87, yaw:  46.17, number: '25' }   // East 60 - Herbert David Dean
         ],
 
-        // STOP 4: 6 hotspots (Odd on Right/West, Even on Left/East, numbers 26 to 31)
+        // STOP 4: 10 hotspots (numbers 26–35, zig-zag chronological order by position along avenue)
         stop4: [
-          // Left side (East) - numbers: 28, 30
-          { treeId: 33, pitch:  6.50, yaw: -45.00, number: '28' },  // East 66 - Norman Stanley Ellis
-          { treeId: 20, pitch:  4.30, yaw: -25.00, number: '30' },  // East 70 - Alice Vera Thornton
-
-          // Right side (West) - numbers: 26, 27, 29, 31
-          { treeId: 32, pitch:  8.50, yaw:  65.00, number: '26' },  // West 61 - Donald Stewart McDonald
-          { treeId: 19, pitch:  7.40, yaw:  38.00, number: '27' },  // West 65 - Harold Vincent Murphy
-          { treeId: 21, pitch:  3.90, yaw:  20.00, number: '29' },  // West 75 - Frederick James Noonan
-          { treeId: 34, pitch:  5.10, yaw:  27.00, number: '31' }   // West 78 - Robert William Anderson
+          { treeId: 16,  pitch:  8.26, yaw: -73.21, number: '26' },  // East 66  - Atkins, John Gordon (Tree 1 - lawn)
+          { treeId: 20,  pitch: 11.78, yaw:  10.28, number: '27' },  // East 122 - Atkins, William Henry (Tree 2 - large tree)
+          { treeId: 195, pitch:  9.14, yaw:  39.73, number: '28' },  // West 64  - O'Rourke, William (Tree 3 - near road)
+          { treeId: 19,  pitch:  8.50, yaw:  46.20, number: '29' },  // East 67  - Atkins, Silas (Tree 4 - roadside)
+          { treeId: 50,  pitch:  2.52, yaw:  51.90, number: '30' },  // East 75  - Bullen, Harold (Tree 5 - lawn)
+          { treeId: 145, pitch:  2.70, yaw:  72.80, number: '31' },  // East 73  - Lafranchi, Peter (Tree 6 - roadside)
+          { treeId: 126, pitch:  1.69, yaw:  78.34, number: '32' },  // West 67  - Jeffrey, Thomas Alexander (Tree 7 - lawn)
+          { treeId: 165, pitch:  2.99, yaw:  95.10, number: '33' },  // West 60  - McPhee, Edward Alexander (Tree 8 - roadside)
+          { treeId: 66,  pitch:  2.99, yaw: 124.98, number: '34' },  // West 72  - Cowan, David Ivan (Tree 9 - lawn)
+          { treeId: 100, pitch:  1.23, yaw: 176.84, number: '35' }   // West 77  - Goad, Joseph William (Tree 10 - near car)
         ],
 
-        // STOP 5: 5 hotspots (numbers 32 to 36, each on a separate tree across the scene)
+        // STOP 5: 10 hotspots (numbers 36–45, zig-zag chronological order by position along avenue)
         stop5: [
-          { treeId: 22, pitch:  4.97, yaw: -41.64, number: '32' },  // East 80 - Roy Alexander Doolan (Tree 1 - far left)
-          { treeId: 35, pitch:  5.73, yaw: -30.39, number: '33' },  // East 84 - Constance Mabel Gray (Tree 2 - mid left)
-          { treeId: 24, pitch:  6.52, yaw: -10.81, number: '35' },  // East 90 - Samuel George Carter (Tree 3 - center)
-          { treeId: 36, pitch:  2.50, yaw:  14.11, number: '36' },  // East 94 - Ernest George Trembath (Tree 4 - center right)
-          { treeId: 23, pitch:  5.05, yaw:  40.58, number: '34' }   // West 85 - Frank Theodore Bartlett (Tree 5 - far right)
+          { treeId: 22,  pitch: 4.20, yaw: -41.64, number: '36' },  // East 74  - Baker, Frederick (Tree 1 - far left)
+          { treeId: 24,  pitch: 5.20, yaw: -10.81, number: '37' },  // East 58  - Balfour, Richard John (Tree 2 - center elm)
+          { treeId: 23,  pitch: 4.50, yaw:  40.58, number: '38' },  // West 4   - Baker, John Alfred (Tree 3 - right lawn)
+          { treeId: 42,  pitch: 3.20, yaw:  72.20, number: '39' },  // East 91  - Boyes, James Angus (Tree 4 - spreading elm)
+          { treeId: 51,  pitch: 4.50, yaw:  78.70, number: '40' },  // West 96  - Byron, Abraham John (Tree 5 - beside white post)
+          { treeId: 149, pitch: 3.00, yaw:  85.00, number: '41' },  // West 98  - McCormack, William (Tree 6 - roadside)
+          { treeId: 146, pitch: 2.20, yaw: 107.50, number: '42' },  // East 95  - Lever, Francis Dysart Phelan (Tree 7 - Left of 3 trees)
+          { treeId: 55,  pitch: 5.00, yaw: 112.50, number: '43' },  // West 103 - Caligari, Antonio (Tree 8 - Middle of 3 trees)
+          { treeId: 73,  pitch: 6.00, yaw: 121.00, number: '44' },  // East 101 - Currington, Allan Harry (Tree 9 - Right of 3 trees)
+          { treeId: 56,  pitch: 8.50, yaw: 139.40, number: '45' }   // West 104 - Caligari, Baptista Patrizio (Tree 10 - large elm)
         ]
       };
 
