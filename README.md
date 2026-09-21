@@ -174,6 +174,22 @@ Completed Sprint 3 work included:
 
 Sprint 3 improves the connection between the physical trees visible in the Avenue panoramas and the historical information associated with each commemorated person.
 
+---
+
+## Sprint 4 Updates
+
+Sprint 4 focused on engagement, storytelling, data expansion, and applying preferred client visual design across the entire website.
+
+Completed Sprint 4 work included:
+
+- **Massive Profile Data Expansion**: Processed and merged 7 dataset batches bringing total coverage to **243 commemorated tree profiles** in `script.js`.
+- **"Find My Ancestor" Search & Filtering**: Added real-time search by surname, full name, tree number, and locality filters (Kingston, Tourello, Yandoit Hills, Creswick, Smeaton) on the Tree Map and Profiles pages.
+- **1918 Historic Mode Overlay**: Implemented an interactive 1918 historical view toggle in the 360° virtual tour to visualize the Avenue when the elms were saplings.
+- **Client Preferred Colour Scheme**: Fully integrated the client's preferred natural green, autumn gold/yellow, autumn orange, autumn red, and paler creamy background tone (`#faf5ea`) across all website pages based on feedback from Margaret & Julie (Kingston Friends of the Avenue).
+- **Hotspot & Profile Integration**: Seamlessly connected interactive 360° panorama hotspots, map markers, and profile cards with direct Google Maps directions.
+
+---
+
 ## Current Status
 
-Sprint 3 is complete. The project now includes numbered interactive tree hotspots positioned within the 360° panoramas. Visitors can select a tree marker to view the associated commemorative profile while continuing to explore the existing five-stop self-drive virtual tour.
+Sprint 4 is complete. The project features 243 commemorative tree profiles integrated into the 360° virtual tour, interactive tree map, and profile directory, with full client color scheme branding and historic 1918 visualization.

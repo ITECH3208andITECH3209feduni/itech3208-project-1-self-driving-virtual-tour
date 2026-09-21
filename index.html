@@ -8,12 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap" rel="stylesheet" />
   <style>
-/* =========================================
-   AVENUE OF HONOUR — VIRTUAL TOUR
-   Aesthetic: Heritage editorial, warm & dignified
-   Fonts: Playfair Display + Source Serif 4
-   Palette: Deep forest green, warm parchment, gold
-   ========================================= */
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -1290,7 +1285,7 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
 
 
 
-/* === CLIENT FEEDBACK UPDATE: autumn orange, yellow, red and greens across whole website === */
+/* === CLIENT PREFERRED COLOUR SCHEME (Autumn & Natural Palette) === */
 :root{
   --client-green-deep:#122818;
   --client-green:#2f5b35;
@@ -1298,7 +1293,12 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
   --client-orange:#c86b22;
   --client-yellow:#f2c94c;
   --client-red:#a63a2a;
-  --client-cream:#f8f1df;
+  --client-cream:#faf5ea;
+  --client-cream-card:#fffdf7;
+}
+body{
+  background-color:var(--client-cream)!important;
+  color:#2b2621!important;
 }
 .site-header,.site-nav,.topbar,.tour-nav{
   background:linear-gradient(90deg,#122818 0%,#234a2b 56%,#7f2f25 130%)!important;
@@ -1332,7 +1332,9 @@ button.primary,.resource-icon,.profile-avatar,.filter-btn.active,.stop-btn.activ
 }
 .card,.info-card,.resource-card,.profile-card,.feature-card,.quick-card,.route-card,
 .about-card,.tree-card,.stat-card{
+  background-color:var(--client-cream-card)!important;
   border-top:3px solid var(--client-orange)!important;
+  border-color:rgba(200,107,34,.2) rgba(45,74,50,.15) rgba(45,74,50,.15) rgba(45,74,50,.15)!important;
 }
 a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand){
   color:#9d4f1e;
@@ -1387,10 +1389,10 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </div>
       <nav class="header-nav">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" target="_blank" class="nav-link">About</a>
-        <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-        <a href="profiles.html" target="_blank" class="nav-link">Profiles</a>
-        <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+        <a href="profiles.html" class="nav-link">Profiles</a>
+        <a href="resources.html" class="nav-link">Resources</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -1398,10 +1400,10 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     </div>
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="about.html" target="_blank" class="mobile-nav-link">About</a>
-      <a href="virtual-tour.html" target="_blank" class="mobile-nav-link">360° Virtual Tour</a>
-      <a href="profiles.html" target="_blank" class="mobile-nav-link">Profiles</a>
-      <a href="resources.html" target="_blank" class="mobile-nav-link">Resources</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="virtual-tour.html" class="mobile-nav-link">360° Virtual Tour</a>
+      <a href="profiles.html" class="mobile-nav-link">Profiles</a>
+      <a href="resources.html" class="mobile-nav-link">Resources</a>
     </div>
   </header>
 
@@ -1415,8 +1417,8 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       <p class="hero-subtitle">286 trees. 286 lives. One road through history.</p>
       <p class="hero-desc">Welcome to the former Shire of Creswick Avenue of Honour at Kingston. Throughout this website, we refer to it as the Kingston Avenue of Honour — an interactive digital journey honouring the men and women who served in the Great War, commemorated by Dutch Elm trees lining 2.9 kilometres of Kingston Road.</p>
       <div class="hero-actions">
-        <a href="virtual-tour.html" target="_blank" class="btn btn-primary">Begin 360° Tour</a>
-        <a href="about.html" target="_blank" class="btn btn-ghost">Learn the History</a>
+        <a href="virtual-tour.html" class="btn btn-primary">Begin 360° Tour</a>
+        <a href="about.html" class="btn btn-ghost">Learn the History</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -1440,7 +1442,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         </div>
       </div>
     </div>
-    <a href="virtual-tour.html" target="_blank" class="hero-scroll-hint">
+    <a href="virtual-tour.html" class="hero-scroll-hint">
       <span>Begin the tour</span>
       <div class="scroll-arrow">↓</div>
     </a>

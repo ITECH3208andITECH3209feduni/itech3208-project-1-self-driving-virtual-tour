@@ -96,6 +96,13 @@ body{font-family:var(--fb);color:var(--tb);background:var(--parch);line-height:1
 .card-name{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--td);margin-bottom:4px;line-height:1.3;}
 .card-meta{font-size:12px;color:var(--tm);}
 .card-location{font-size:11px;color:var(--gl);margin-top:5px;}
+/* Hotspot badge – matches the gold numbered circles in the virtual tour */
+.card-hotspot{display:inline-flex;align-items:center;gap:5px;margin-top:6px;}
+.card-hotspot-circle{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#c86b22,#f2c94c);color:#122818;font-size:10px;font-weight:800;font-family:var(--fd);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(200,107,34,0.45);}
+.card-hotspot-label{font-size:10px;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;}
+.modal-hotspot-badge{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:rgba(255,255,255,0.1);padding:4px 10px 4px 4px;border-radius:20px;border:1px solid rgba(242,201,76,0.4);}
+.modal-hotspot-circle{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#c86b22,#f2c94c);color:#122818;font-size:11px;font-weight:800;font-family:var(--fd);display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(200,107,34,0.5);}
+.modal-hotspot-text{font-size:11px;color:var(--goldl);letter-spacing:0.07em;text-transform:uppercase;font-weight:600;}
 .no-results{grid-column:1/-1;text-align:center;padding:4rem;color:var(--tm);}
 .no-results-icon{font-size:48px;margin-bottom:1rem;}
 .no-results h3{font-family:var(--fd);color:var(--td);margin-bottom:0.5rem;}
@@ -140,7 +147,7 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
 
 
 
-/* === CLIENT FEEDBACK UPDATE: autumn orange, yellow, red and greens across whole website === */
+/* === CLIENT PREFERRED COLOUR SCHEME (Autumn & Natural Palette) === */
 :root{
   --client-green-deep:#122818;
   --client-green:#2f5b35;
@@ -148,7 +155,12 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
   --client-orange:#c86b22;
   --client-yellow:#f2c94c;
   --client-red:#a63a2a;
-  --client-cream:#f8f1df;
+  --client-cream:#faf5ea;
+  --client-cream-card:#fffdf7;
+}
+body{
+  background-color:var(--client-cream)!important;
+  color:#2b2621!important;
 }
 .site-header,.site-nav,.topbar,.tour-nav{
   background:linear-gradient(90deg,#122818 0%,#234a2b 56%,#7f2f25 130%)!important;
@@ -181,8 +193,10 @@ button.primary,.resource-icon,.profile-avatar,.filter-btn.active,.stop-btn.activ
   border-color:rgba(242,201,76,.25)!important;
 }
 .card,.info-card,.resource-card,.profile-card,.feature-card,.quick-card,.route-card,
-.about-card,.tree-card,.stat-card{
+.about-card,.tree-card,.stat-card,.controls-bar-wrap{
+  background-color:var(--client-cream-card)!important;
   border-top:3px solid var(--client-orange)!important;
+  border-color:rgba(200,107,34,.2) rgba(45,74,50,.15) rgba(45,74,50,.15) rgba(45,74,50,.15)!important;
 }
 a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand){
   color:#9d4f1e;
@@ -206,21 +220,21 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </a>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-        <a href="tree-map.html" target="_blank" class="nav-link">Tree Map</a>
-        <a href="about.html" target="_blank" class="nav-link">About</a>
-        <a href="profiles.html" target="_blank" class="nav-link active">Profiles</a>
-        <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+        <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+        <a href="tree-map.html" class="nav-link">Tree Map</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="profiles.html" class="nav-link active">Profiles</a>
+        <a href="resources.html" class="nav-link">Resources</a>
       </div>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-      <a href="tree-map.html" target="_blank" class="nav-link">Tree Map</a>
-      <a href="about.html" target="_blank" class="nav-link">About</a>
-      <a href="profiles.html" target="_blank" class="nav-link active">Profiles</a>
-      <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+      <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+      <a href="tree-map.html" class="nav-link">Tree Map</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="profiles.html" class="nav-link active">Profiles</a>
+      <a href="resources.html" class="nav-link">Resources</a>
     </div>
   </nav>
   <div class="page-hero">
@@ -266,6 +280,10 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         <div class="modal-tree" id="mTree"></div>
         <div class="modal-name" id="mName"></div>
         <div class="modal-badges" id="mBadges"></div>
+        <div class="modal-hotspot-badge" id="mHotspot" style="display:none;">
+          <span class="modal-hotspot-circle" id="mHotspotNum"></span>
+          <span class="modal-hotspot-text" id="mHotspotLabel"></span>
+        </div>
       </div>
       <div class="modal-body">
         <div class="modal-row"><span class="row-label">Gender</span><span class="row-val" id="mGender"></span></div>
@@ -276,7 +294,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         <div class="modal-section"><div class="modal-sec-title">Notes &amp; Local History</div><p class="modal-sec-text" id="mNotes"></p></div>
       </div>
       <div class="modal-footer">
-        <a id="mMaps" href="#" target="_blank" class="btn-green">📍 Get Directions</a>
+        <a id="mMaps" href="#" class="btn-green">📍 Get Directions</a>
         <a href="https://kingstonavenueofhonour.org.au/tree-map-app/" target="_blank" class="btn-out">Official Record ↗</a>
       </div>
     </div>
@@ -291,11 +309,11 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
-        <a href="virtual-tour.html" target="_blank">360° Virtual Tour</a>
-        <a href="tree-map.html" target="_blank">Tree Map</a>
-        <a href="about.html" target="_blank">About</a>
-        <a href="profiles.html" target="_blank">Profiles</a>
-        <a href="resources.html" target="_blank">Resources</a>
+        <a href="virtual-tour.html">360° Virtual Tour</a>
+        <a href="tree-map.html">Tree Map</a>
+        <a href="about.html">About</a>
+        <a href="profiles.html">Profiles</a>
+        <a href="resources.html">Resources</a>
       </div>
       <div class="footer-col">
         <h4>External Links</h4>
@@ -310,14 +328,85 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
   <script src="script.js"></script>
   <script>
   var cf='all', cs='';
+
+  /* ── HOTSPOT MAP ──────────────────────────────────────────────────────────
+     Computed from buildTreeHotspots() in virtual-tour.html using the same
+     TREE_HOTSPOT_OVERRIDES.  Each entry: treeId → { stop, num }
+     Stop 1 assignment matches exactly the panorama shown in the reference image.
+  ───────────────────────────────────────────────────────────────────────── */
+  var HOTSPOT_MAP = {
+    /* ── STOP 1 (1 to 10: Odd on Right/West, Even on Left/East) ── */
+     1: {stop:1, num:1},   /* West 1   – John Thomas Doolan (front right) */
+     2: {stop:1, num:2},   /* East 2   – Alfred George Moyle (front left)  */
+     3: {stop:1, num:3},   /* West 5   – William Robert Henderson         */
+    25: {stop:1, num:4},   /* East 4   – Arthur Leslie Robinson            */
+    26: {stop:1, num:5},   /* West 8   – George Henry Spittle             */
+     4: {stop:1, num:6},   /* East 8   – Ethel May Beasley (Nurse)        */
+     5: {stop:1, num:7},   /* West 12  – James Patrick Sullivan           */
+    27: {stop:1, num:8},   /* East 10  – Sarah Ann Claringbold (Nurse)    */
+    28: {stop:1, num:9},   /* West 15  – Albert Edward Davey              */
+     6: {stop:1, num:10},  /* East 14  – Thomas Edward Norris             */
+    /* ── STOP 2 (11 to 20: Odd on Right/West, Even on Left/East) ── */
+     7: {stop:2, num:11},  /* West 19  – Henry George Mackay              */
+    29: {stop:2, num:12},  /* East 18  – Herbert Victor Leishman          */
+     9: {stop:2, num:13},  /* West 27  – Florence Mary Cartwright (Nurse) */
+     8: {stop:2, num:14},  /* East 22  – Walter George Moyle              */
+    30: {stop:2, num:15},  /* West 31  – Leslie James Callow              */
+    10: {stop:2, num:16},  /* East 30  – Charles William Beasley          */
+    11: {stop:2, num:17},  /* West 35  – Bertram Louis Chambers           */
+    12: {stop:2, num:18},  /* East 38  – Percy John Whitmore              */
+    13: {stop:2, num:19},  /* West 39  – William M. Boadle                */
+    31: {stop:2, num:20},  /* East 40  – Ellen Frances Bowley             */
+    /* ── STOP 3 (21 to 25: sequential, Odd=Right/West, Even=Left/East) ── */
+    14: {stop:3, num:21},  /* East 44  – Margaret Agnes Fogarty           */
+    15: {stop:3, num:22},  /* West 48  – Arthur Francis Hogan             */
+    16: {stop:3, num:23},  /* East 52  – George Ernest Lacey              */
+    17: {stop:3, num:24},  /* West 57  – Edwin Albert McCrae              */
+    18: {stop:3, num:25},  /* East 60  – Reginald John Farrow             */
+    /* ── STOP 4 (26 to 31: sequential, Odd=Right/West, Even=Left/East) ── */
+    32: {stop:4, num:26},  /* West 61  – Donald Stewart McDonald         */
+    19: {stop:4, num:27},  /* West 65  – Harold Vincent Murphy           */
+    33: {stop:4, num:28},  /* East 66  – Norman Stanley Ellis            */
+    20: {stop:4, num:29},  /* East 70  – Alice Vera Thornton             */
+    21: {stop:4, num:30},  /* West 75  – Frederick James Noonan          */
+    34: {stop:4, num:31},  /* West 78  – Robert William Anderson         */
+    /* ── STOP 5 (32 to 36: sequential, Odd=Right/West, Even=Left/East) ── */
+    22: {stop:5, num:32},  /* East 80  – Roy Alexander Doolan            */
+    35: {stop:5, num:33},  /* East 84  – Constance Mabel Gray            */
+    23: {stop:5, num:34},  /* West 85  – Frank Theodore Bartlett         */
+    24: {stop:5, num:35},  /* East 90  – Samuel George Carter            */
+    36: {stop:5, num:36},  /* East 94  – Ernest George Trembath          */
+    };
+
   function ini(n){return n.split(' ').filter(function(w){return/^[A-Z]/.test(w);}).slice(0,2).map(function(w){return w[0];}).join('');}
+
+  function hotspotBadgeHtml(id){
+    var h=HOTSPOT_MAP[id];
+    if(!h)return '';
+    return '<div class="card-hotspot">'
+      +'<span class="card-hotspot-circle">'+h.num+'</span>'
+      +'<span class="card-hotspot-label">Stop '+h.stop+' · Hotspot #'+h.num+'</span>'
+      +'</div>';
+  }
+
   function render(){
     var grid=document.getElementById('profilesGrid');
     var f=TREES.filter(function(t){return(cf==='all'||t.location===cf)&&(!cs||t.name.toLowerCase().includes(cs)||t.treeNum.toLowerCase().includes(cs)||t.location.toLowerCase().includes(cs));});
     document.getElementById('resultsCount').textContent=f.length===TREES.length?'Showing all '+TREES.length+' profiles':'Showing '+f.length+' of '+TREES.length;
     if(!f.length){grid.innerHTML='<div class="no-results"><div class="no-results-icon">🔍</div><h3>No profiles found</h3><p>Try adjusting your search or filter.</p></div>';return;}
-    grid.innerHTML=f.map(function(t){return '<div class="profile-card" onclick="openModal('+t.id+')"><div class="card-avatar '+(t.role==='Nurse'?'card-avatar-nurse':'card-avatar-soldier')+'">'+ini(t.name)+'</div><div class="card-body"><div class="card-tree">'+t.treeNum+'</div><div class="card-name">'+t.name+'</div><div class="card-meta">'+t.rank+(t.age?' · Age '+t.age:'')+(t.fallen?' · <span style="color:#8b2020">Fallen</span>':'')+'</div><div class="card-location">📍 '+t.location+'</div></div></div>';}).join('');
+    grid.innerHTML=f.map(function(t){
+      return '<div class="profile-card" onclick="openModal('+t.id+')">'
+        +'<div class="card-avatar '+(t.role==='Nurse'?'card-avatar-nurse':'card-avatar-soldier')+'">'+ini(t.name)+'</div>'
+        +'<div class="card-body">'
+        +'<div class="card-tree">'+t.treeNum+'</div>'
+        +'<div class="card-name">'+t.name+'</div>'
+        +'<div class="card-meta">'+t.rank+(t.age?' · Age '+t.age:'')+(t.fallen?' · <span style="color:#8b2020">Fallen</span>':'')+' </div>'
+        +'<div class="card-location">📍 '+t.location+'</div>'
+        +hotspotBadgeHtml(t.id)
+        +'</div></div>';
+    }).join('');
   }
+
   function openModal(id){
     var t=TREES.find(function(x){return x.id===id;});if(!t)return;
     var isN=t.role==='Nurse';
@@ -336,9 +425,20 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     if(t.fallen)b+='<span class="badge badge-fallen">Fallen</span>';
     b+='<span class="badge badge-loc">'+t.location+'</span>';
     document.getElementById('mBadges').innerHTML=b;
+    /* Hotspot badge in modal */
+    var h=HOTSPOT_MAP[t.id];
+    var mhs=document.getElementById('mHotspot');
+    if(h){
+      document.getElementById('mHotspotNum').textContent=h.num;
+      document.getElementById('mHotspotLabel').textContent='Stop '+h.stop+' · Hotspot #'+h.num;
+      mhs.style.display='inline-flex';
+    }else{
+      mhs.style.display='none';
+    }
     document.getElementById('mMaps').href='https://www.google.com/maps/dir/?api=1&destination='+t.lat+','+t.lng;
     var o=document.getElementById('modalOverlay');o.style.opacity='1';o.style.visibility='visible';
   }
+
   function closeModal(){var o=document.getElementById('modalOverlay');o.style.opacity='0';o.style.visibility='hidden';}
   document.getElementById('modalClose').addEventListener('click',closeModal);
   document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});

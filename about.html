@@ -103,7 +103,7 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
 
 
 
-/* === CLIENT FEEDBACK UPDATE: autumn orange, yellow, red and greens across whole website === */
+/* === CLIENT PREFERRED COLOUR SCHEME (Autumn & Natural Palette) === */
 :root{
   --client-green-deep:#122818;
   --client-green:#2f5b35;
@@ -111,7 +111,12 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
   --client-orange:#c86b22;
   --client-yellow:#f2c94c;
   --client-red:#a63a2a;
-  --client-cream:#f8f1df;
+  --client-cream:#faf5ea;
+  --client-cream-card:#fffdf7;
+}
+body{
+  background-color:var(--client-cream)!important;
+  color:#2b2621!important;
 }
 .site-header,.site-nav,.topbar,.tour-nav{
   background:linear-gradient(90deg,#122818 0%,#234a2b 56%,#7f2f25 130%)!important;
@@ -144,8 +149,10 @@ button.primary,.resource-icon,.profile-avatar,.filter-btn.active,.stop-btn.activ
   border-color:rgba(242,201,76,.25)!important;
 }
 .card,.info-card,.resource-card,.profile-card,.feature-card,.quick-card,.route-card,
-.about-card,.tree-card,.stat-card{
+.about-card,.tree-card,.stat-card,.contact-box{
+  background-color:var(--client-cream-card)!important;
   border-top:3px solid var(--client-orange)!important;
+  border-color:rgba(200,107,34,.2) rgba(45,74,50,.15) rgba(45,74,50,.15) rgba(45,74,50,.15)!important;
 }
 a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand){
   color:#9d4f1e;
@@ -169,21 +176,21 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </a>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-        <a href="tree-map.html" target="_blank" class="nav-link">Tree Map</a>
-        <a href="about.html" target="_blank" class="nav-link active">About</a>
-        <a href="profiles.html" target="_blank" class="nav-link">Profiles</a>
-        <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+        <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+        <a href="tree-map.html" class="nav-link">Tree Map</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="profiles.html" class="nav-link">Profiles</a>
+        <a href="resources.html" class="nav-link">Resources</a>
       </div>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-      <a href="tree-map.html" target="_blank" class="nav-link">Tree Map</a>
-      <a href="about.html" target="_blank" class="nav-link active">About</a>
-      <a href="profiles.html" target="_blank" class="nav-link">Profiles</a>
-      <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+      <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+      <a href="tree-map.html" class="nav-link">Tree Map</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="profiles.html" class="nav-link">Profiles</a>
+      <a href="resources.html" class="nav-link">Resources</a>
     </div>
   </nav>
   <div class="page-hero">
@@ -234,11 +241,11 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
-        <a href="virtual-tour.html" target="_blank">360° Virtual Tour</a>
-        <a href="tree-map.html" target="_blank">Tree Map</a>
-        <a href="about.html" target="_blank">About</a>
-        <a href="profiles.html" target="_blank">Profiles</a>
-        <a href="resources.html" target="_blank">Resources</a>
+        <a href="virtual-tour.html">360° Virtual Tour</a>
+        <a href="tree-map.html">Tree Map</a>
+        <a href="about.html">About</a>
+        <a href="profiles.html">Profiles</a>
+        <a href="resources.html">Resources</a>
       </div>
       <div class="footer-col">
         <h4>External Links</h4>

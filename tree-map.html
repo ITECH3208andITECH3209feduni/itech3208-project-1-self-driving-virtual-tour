@@ -146,7 +146,7 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
 
 
 
-/* === CLIENT FEEDBACK UPDATE: autumn orange, yellow, red and greens across whole website === */
+/* === CLIENT PREFERRED COLOUR SCHEME (Autumn & Natural Palette) === */
 :root{
   --client-green-deep:#122818;
   --client-green:#2f5b35;
@@ -154,7 +154,16 @@ button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14p
   --client-orange:#c86b22;
   --client-yellow:#f2c94c;
   --client-red:#a63a2a;
-  --client-cream:#f8f1df;
+  --client-cream:#faf5ea;
+  --client-cream-card:#fffdf7;
+}
+body{
+  background-color:var(--client-cream)!important;
+  color:#2b2621!important;
+}
+.map-topbar{
+  background-color:var(--client-cream)!important;
+  border-bottom:1px solid rgba(200,107,34,.25)!important;
 }
 .site-header,.site-nav,.topbar,.tour-nav{
   background:linear-gradient(90deg,#122818 0%,#234a2b 56%,#7f2f25 130%)!important;
@@ -188,7 +197,9 @@ button.primary,.resource-icon,.profile-avatar,.filter-btn.active,.stop-btn.activ
 }
 .card,.info-card,.resource-card,.profile-card,.feature-card,.quick-card,.route-card,
 .about-card,.tree-card,.stat-card{
+  background-color:var(--client-cream-card)!important;
   border-top:3px solid var(--client-orange)!important;
+  border-color:rgba(200,107,34,.2) rgba(45,74,50,.15) rgba(45,74,50,.15) rgba(45,74,50,.15)!important;
 }
 a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand){
   color:#9d4f1e;
@@ -212,21 +223,21 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </a>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-        <a href="tree-map.html" target="_blank" class="nav-link active">Tree Map</a>
-        <a href="about.html" target="_blank" class="nav-link">About</a>
-        <a href="profiles.html" target="_blank" class="nav-link">Profiles</a>
-        <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+        <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+        <a href="tree-map.html" class="nav-link active">Tree Map</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="profiles.html" class="nav-link">Profiles</a>
+        <a href="resources.html" class="nav-link">Resources</a>
       </div>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="virtual-tour.html" target="_blank" class="nav-link">360° Virtual Tour</a>
-      <a href="tree-map.html" target="_blank" class="nav-link active">Tree Map</a>
-      <a href="about.html" target="_blank" class="nav-link">About</a>
-      <a href="profiles.html" target="_blank" class="nav-link">Profiles</a>
-      <a href="resources.html" target="_blank" class="nav-link">Resources</a>
+      <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+      <a href="tree-map.html" class="nav-link active">Tree Map</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="profiles.html" class="nav-link">Profiles</a>
+      <a href="resources.html" class="nav-link">Resources</a>
     </div>
   </nav>
   <div class="map-page">
@@ -277,7 +288,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
             <div class="detail-sec"><div class="detail-sec-title">Notes</div><p id="dNotes"></p></div>
           </div>
           <div class="detail-footer">
-            <a id="dMaps" href="#" target="_blank" class="btn-dir">📍 Directions</a>
+            <a id="dMaps" href="#" class="btn-dir">📍 Directions</a>
             <a href="https://kingstonavenueofhonour.org.au/tree-map-app/" target="_blank" class="btn-rec">Full Record ↗</a>
           </div>
         </div>
