@@ -206,37 +206,191 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
 }
 ::selection{background:var(--client-yellow);color:#122818;}
 
+
+/* ===== HOMEPAGE MATCHING HEADER STYLES ===== */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2000;
+  height: 68px;
+  background: rgba(247,243,235,0.97) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(45,74,50,0.15) !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-emblem {
+  color: #c8860a !important;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-title {
+  color: #142515 !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand-sub {
+  color: #2d4a32 !important;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.header-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.nav-link {
+  color: rgba(30,45,32,0.75) !important;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0.5rem 1rem !important;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+  font-family: 'Source Serif 4', Georgia, serif;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #142515 !important;
+  background: rgba(45,74,50,0.08) !important;
+}
+
+.nav-link.active,
+.mobile-nav-link.active {
+  color: #142515 !important;
+  background: rgba(200,134,10,0.12) !important;
+  border: 1px solid rgba(200,134,10,0.35) !important;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: #142515 !important;
+  display: block;
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  background: #f7f3eb !important;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(45,74,50,0.15) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 1999;
+}
+
+.mobile-nav.open {
+  display: flex !important;
+}
+
+.mobile-nav-link {
+  color: rgba(30,45,32,0.8) !important;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(45,74,50,0.1) !important;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none !important;
+}
+
+@media (max-width: 768px) {
+  .header-nav { display: none !important; }
+  .nav-toggle { display: flex !important; }
+}
+
+@media (min-width: 769px) {
+  .nav-toggle { display: none !important; }
+  .mobile-nav { display: none !important; }
+}
+
 </style>
 </head>
 <body>
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <span class="nav-emblem">✦</span>
-        <div class="nav-brand-text">
-          <span class="nav-brand-title">Avenue of Honour</span>
-          <span class="nav-brand-sub">Kingston Avenue of Honour</span>
+    <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">
+        <div class="brand-emblem">✦</div>
+        <div class="brand-text">
+          <span class="brand-title">Avenue of Honour</span>
+          <span class="brand-sub">Kingston Avenue of Honour</span>
         </div>
       </a>
-      <div class="nav-links">
+      <nav class="header-nav">
         <a href="index.html" class="nav-link">Home</a>
         <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
         <a href="tree-map.html" class="nav-link">Tree Map</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="profiles.html" class="nav-link active">Profiles</a>
         <a href="resources.html" class="nav-link">Resources</a>
-      </div>
-      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
-      <a href="tree-map.html" class="nav-link">Tree Map</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="profiles.html" class="nav-link active">Profiles</a>
-      <a href="resources.html" class="nav-link">Resources</a>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="virtual-tour.html" class="mobile-nav-link">360° Virtual Tour</a>
+      <a href="tree-map.html" class="mobile-nav-link">Tree Map</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="profiles.html" class="mobile-nav-link active">Profiles</a>
+      <a href="resources.html" class="mobile-nav-link">Resources</a>
     </div>
-  </nav>
+  </header>
   <div class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-eyebrow">People &amp; Profiles</div>
@@ -292,10 +446,10 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         <div class="modal-row"><span class="row-label">Locality</span><span class="row-val" id="mLoc"></span></div>
         <div class="modal-section"><div class="modal-sec-title">Service History</div><p class="modal-sec-text" id="mService"></p></div>
         <div class="modal-section"><div class="modal-sec-title">Notes &amp; Local History</div><p class="modal-sec-text" id="mNotes"></p></div>
-      </div>
       <div class="modal-footer">
-        <a id="mMaps" href="#" class="btn-green">📍 Get Directions</a>
-        <a href="https://kingstonavenueofhonour.org.au/tree-map-app/" target="_blank" class="btn-out">Official Record ↗</a>
+        <a id="mTour" href="virtual-tour.html" class="btn-green" style="display:none;">360° Virtual Tour</a>
+        <a id="mTreeMap" href="tree-map.html" class="btn-out">Interactive Map</a>
+        <a id="mMaps" href="#" target="_blank" rel="noopener" class="btn-out">Directions ↗</a>
       </div>
     </div>
   </div>
@@ -324,7 +478,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     </div>
     <div class="footer-bottom"><p>© 2026 Kingston Avenue of Honour — former Shire of Creswick Avenue of Honour at Kingston</p></div>
   </footer>
-  <script>document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('mobileMenu').classList.toggle('open');});</script>
+  <script>document.getElementById('navToggle').addEventListener('click', function() { document.getElementById('mobileNav').classList.toggle('open'); });</script>
   <script src="script.js"></script>
   <script>
   var cf='all', cs='';
@@ -335,48 +489,108 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
      Stop 1 assignment matches exactly the panorama shown in the reference image.
   ───────────────────────────────────────────────────────────────────────── */
   var HOTSPOT_MAP = {
-    /* ── STOP 1 (1 to 10: Odd on Right/West, Even on Left/East) ── */
-     1: {stop:1, num:1},   /* West 1   – John Thomas Doolan (front right) */
-     2: {stop:1, num:2},   /* East 2   – Alfred George Moyle (front left)  */
-     3: {stop:1, num:3},   /* West 5   – William Robert Henderson         */
-    25: {stop:1, num:4},   /* East 4   – Arthur Leslie Robinson            */
-    26: {stop:1, num:5},   /* West 8   – George Henry Spittle             */
-     4: {stop:1, num:6},   /* East 8   – Ethel May Beasley (Nurse)        */
-     5: {stop:1, num:7},   /* West 12  – James Patrick Sullivan           */
-    27: {stop:1, num:8},   /* East 10  – Sarah Ann Claringbold (Nurse)    */
-    28: {stop:1, num:9},   /* West 15  – Albert Edward Davey              */
-     6: {stop:1, num:10},  /* East 14  – Thomas Edward Norris             */
-    /* ── STOP 2 (11 to 20: Odd on Right/West, Even on Left/East) ── */
-     7: {stop:2, num:11},  /* West 19  – Henry George Mackay              */
-    29: {stop:2, num:12},  /* East 18  – Herbert Victor Leishman          */
-     9: {stop:2, num:13},  /* West 27  – Florence Mary Cartwright (Nurse) */
-     8: {stop:2, num:14},  /* East 22  – Walter George Moyle              */
-    30: {stop:2, num:15},  /* West 31  – Leslie James Callow              */
-    10: {stop:2, num:16},  /* East 30  – Charles William Beasley          */
-    11: {stop:2, num:17},  /* West 35  – Bertram Louis Chambers           */
-    12: {stop:2, num:18},  /* East 38  – Percy John Whitmore              */
-    13: {stop:2, num:19},  /* West 39  – William M. Boadle                */
-    31: {stop:2, num:20},  /* East 40  – Ellen Frances Bowley             */
-    /* ── STOP 3 (21 to 25) ── */
-    180: {stop:3, num:21},  /* East 44  – Stanley Miller                   */
-    228: {stop:3, num:22},  /* West 48  – Eric Claude White                */
-     64: {stop:3, num:23},  /* East 52  – Lennon Edwin Coulson             */
-     82: {stop:3, num:24},  /* West 57  – Allen Dimond                     */
-     81: {stop:3, num:25},  /* East 60  – Herbert David Dean               */
-    /* ── STOP 4 (26 to 31: sequential, Odd=Right/West, Even=Left/East) ── */
-    32: {stop:4, num:26},  /* West 61  – Donald Stewart McDonald         */
-    19: {stop:4, num:27},  /* West 65  – Harold Vincent Murphy           */
-    33: {stop:4, num:28},  /* East 66  – Norman Stanley Ellis            */
-    20: {stop:4, num:30},  /* East 70  – Alice Vera Thornton             */
-    21: {stop:4, num:29},  /* West 75  – Frederick James Noonan          */
-    34: {stop:4, num:31},  /* West 78  – Robert William Anderson         */
-    /* ── STOP 5 (32 to 36: sequential, Odd=Right/West, Even=Left/East) ── */
-    22: {stop:5, num:32},  /* East 80  – Roy Alexander Doolan            */
-    35: {stop:5, num:33},  /* East 84  – Constance Mabel Gray            */
-    23: {stop:5, num:34},  /* West 85  – Frank Theodore Bartlett         */
-    24: {stop:5, num:35},  /* East 90  – Samuel George Carter            */
-    36: {stop:5, num:36},  /* East 94  – Ernest George Trembath          */
-    };
+
+    /* -- STOP 1 (1-5 East, 6-10 West) -- */
+
+     199: {stop:1, num:1},   /* E1  - Parkin, John (center of tree) */
+
+       2: {stop:1, num:2},   /* E2  - Allen, William Robert */
+
+       6: {stop:1, num:3},   /* E3  - Archibald, Ernest Ormond */
+
+       8: {stop:1, num:4},   /* E4  - Archibald, James Lindsay */
+
+      58: {stop:1, num:5},   /* E5  - Carey, David */
+
+     158: {stop:1, num:6},   /* W1  - McKinnon, Andrew */
+
+     160: {stop:1, num:7},   /* W2  - McKinnon, Norman */
+
+      21: {stop:1, num:8},   /* W3  - Baker, Charles Thomas */
+
+      23: {stop:1, num:9},   /* W4  - Baker, John Alfred */
+
+      30: {stop:1, num:10},   /* W5  - Betts, Ernest Alfred */
+
+    /* -- STOP 2 (11-15 East, 16-20 West) -- */
+
+     150: {stop:2, num:11},   /* E6  - McDonald, Thomas Alexander */
+
+     175: {stop:2, num:12},   /* E7  - May, Henry Vickery */
+
+     174: {stop:2, num:13},   /* E8  - May, Douglas George */
+
+     173: {stop:2, num:14},   /* E9  - May, Archie */
+
+     169: {stop:2, num:15},   /* E10 - Marshall, Robert Henry */
+
+      63: {stop:2, num:16},   /* W6  - Clark, Herbert */
+
+      37: {stop:2, num:17},   /* W7  - Bourke, John Thomas */
+
+     170: {stop:2, num:18},   /* W8  - Martin, Alanson Matthew Post */
+
+     143: {stop:2, num:19},   /* W9  - Kenneally, John Henry */
+
+     142: {stop:2, num:20},   /* W10 - Kenneally, James */
+
+    /* -- STOP 3 (21-22 East E11-E12, 23-25 West W11-W13) -- */
+
+     168: {stop:3, num:21},   /* E11 - Marshall, Albert Charles */
+
+     244: {stop:3, num:22},   /* E12 - Vague, Felix */
+
+      84: {stop:3, num:23},   /* W11 - Drury, Frederick George */
+
+     186: {stop:3, num:24},   /* W12 - Mitchell, William Edward */
+
+     184: {stop:3, num:25},   /* W13 - Mitchell, Francis Theodore */
+
+    /* -- STOP 4 (26-29 West W14-W17, 30 East E13, 31 West W18, 32-35 East E14-E17) -- */
+
+     185: {stop:4, num:26},   /* W14 - Mitchell, Herbert */
+
+     151: {stop:4, num:27},   /* W15 - McFarlane, William Henry */
+
+      47: {stop:4, num:28},   /* W16 - Brinsden, Gilbert Joseph */
+
+      28: {stop:4, num:29},   /* W17 - Beasley, Frederick James */
+
+     139: {stop:4, num:30},   /* E13 - Kay, Percival Mark */
+
+      54: {stop:4, num:31},   /* W18 - Caldwell, Robert */
+
+     140: {stop:4, num:32},   /* E14 - Kay, Thomas Dominick */
+
+     147: {stop:4, num:33},   /* E15 - McAndrew, Ivor Collis */
+
+     148: {stop:4, num:34},   /* E16 - McAndrew, Ormond Victor George */
+
+      39: {stop:4, num:35},   /* E17 - Boustead, Albert Gordon */
+
+    /* -- STOP 5 (36-38 East E18-E20, 39-40 West W19-W20, 41-43 East E21-E23, 44-45 West W21-W22) -- */
+
+      40: {stop:5, num:36},   /* E18 - Boustead, Howard Wellesley */
+
+       3: {stop:5, num:37},   /* E19 - Anderson, Gordon Thomas */
+
+       5: {stop:5, num:38},   /* E20 - Anderson, Stanley Richard */
+
+      52: {stop:5, num:39},   /* W19 - Caldwell, Alexander */
+
+     132: {stop:5, num:40},   /* W20 - Johannsen, Rupert Claude */
+
+      35: {stop:5, num:41},   /* E21 - Booth, Arthur Charles */
+
+      34: {stop:5, num:42},   /* E22 - Bolton, Thomas */
+
+     203: {stop:5, num:43},   /* E23 - Peters, William James */
+
+     131: {stop:5, num:44},   /* W21 - Johannsen, Peter Norman */
+
+     130: {stop:5, num:45}   /* W22 - Johannsen, Henry Niemen */
+
+  };
 
   function ini(n){return n.split(' ').filter(function(w){return/^[A-Z]/.test(w);}).slice(0,2).map(function(w){return w[0];}).join('');}
 
@@ -395,7 +609,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     document.getElementById('resultsCount').textContent=f.length===TREES.length?'Showing all '+TREES.length+' profiles':'Showing '+f.length+' of '+TREES.length;
     if(!f.length){grid.innerHTML='<div class="no-results"><div class="no-results-icon">🔍</div><h3>No profiles found</h3><p>Try adjusting your search or filter.</p></div>';return;}
     grid.innerHTML=f.map(function(t){
-      return '<div class="profile-card" onclick="openModal('+t.id+')">'
+      return '<div class="profile-card" id="tree-'+t.id+'" onclick="openModal('+t.id+')">'
         +'<div class="card-avatar '+(t.role==='Nurse'?'card-avatar-nurse':'card-avatar-soldier')+'">'+ini(t.name)+'</div>'
         +'<div class="card-body">'
         +'<div class="card-tree">'+t.treeNum+'</div>'
@@ -428,13 +642,21 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     /* Hotspot badge in modal */
     var h=HOTSPOT_MAP[t.id];
     var mhs=document.getElementById('mHotspot');
+    var mTour=document.getElementById('mTour');
     if(h){
       document.getElementById('mHotspotNum').textContent=h.num;
       document.getElementById('mHotspotLabel').textContent='Stop '+h.stop+' · Hotspot #'+h.num;
       mhs.style.display='inline-flex';
+      if(mTour){
+        mTour.href='virtual-tour.html?scene='+(h.stop-1);
+        mTour.style.display='inline-flex';
+      }
     }else{
       mhs.style.display='none';
+      if(mTour) mTour.style.display='none';
     }
+    var mTreeMap=document.getElementById('mTreeMap');
+    if(mTreeMap) mTreeMap.href='tree-map.html#tree-'+t.id;
     document.getElementById('mMaps').href='https://www.google.com/maps/dir/?api=1&destination='+t.lat+','+t.lng;
     var o=document.getElementById('modalOverlay');o.style.opacity='1';o.style.visibility='visible';
   }
@@ -444,7 +666,24 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
   document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
   document.getElementById('searchInput').addEventListener('input',function(){cs=this.value.trim().toLowerCase();render();});
   document.querySelectorAll('.filter-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');cf=btn.dataset.filter;render();});});
+
+  function checkHash(){
+    var hash = window.location.hash;
+    if(hash && hash.indexOf('#tree-') === 0){
+      var id = parseInt(hash.replace('#tree-', ''), 10);
+      if(!isNaN(id)){
+        openModal(id);
+        var el = document.getElementById('tree-' + id);
+        if(el) {
+          setTimeout(function(){ el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+        }
+      }
+    }
+  }
+
   render();
+  window.addEventListener('hashchange', checkHash);
+  checkHash();
   </script>
 </body>
 </html>

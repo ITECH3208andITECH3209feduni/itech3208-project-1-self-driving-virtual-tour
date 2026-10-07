@@ -1275,103 +1275,272 @@ body {
 
   
 
-/* Client requested autumn colour scheme: orange, yellow, red and greens */
-.site-nav{background:linear-gradient(90deg,#142515 0%,#1f3f25 55%,rgba(166,58,42,0.94) 145%)!important;border-bottom-color:rgba(242,201,76,0.35)!important;}
-.nav-emblem,.nav-brand-sub{color:#f2c94c!important;}
-.nav-link.active{color:#f2c94c!important;background:rgba(200,107,34,0.20)!important;border-color:rgba(242,201,76,0.45)!important;}
-.nav-link:hover{background:rgba(200,107,34,0.16)!important;}
-button,.btn,.hero-cta-primary,.primary-btn,.stop-btn.active{box-shadow:0 4px 14px rgba(200,107,34,0.12);}
-::selection{background:#d08a1f;color:#142515;}
+/* ============================================================
+   REFERENCE THEME — Light Navbar + Pastel Stats + Hero Panel
+   ============================================================ */
 
+/* --- Global palette tweaks --- */
+:root {
+  --ref-cream:      #f7f3eb;
+  --ref-cream-card: #fffdf7;
+  --ref-green-deep: #142515;
+  --ref-green:      #2d4a32;
+  --ref-gold:       #c8860a;
+  --ref-gold-lt:    #d4a84b;
+  --ref-orange:     #c86b22;
+  --ref-text:       #2b2621;
+}
 
+body {
+  background-color: var(--ref-cream) !important;
+  color: var(--ref-text) !important;
+}
 
-/* === CLIENT PREFERRED COLOUR SCHEME (Autumn & Natural Palette) === */
-:root{
-  --client-green-deep:#122818;
-  --client-green:#2f5b35;
-  --client-leaf:#5f8f3f;
-  --client-orange:#c86b22;
-  --client-yellow:#f2c94c;
-  --client-red:#a63a2a;
-  --client-cream:#faf5ea;
-  --client-cream-card:#fffdf7;
-}
-body{
-  background-color:var(--client-cream)!important;
-  color:#2b2621!important;
-}
-.site-header,.site-nav,.topbar,.tour-nav{
-  background:linear-gradient(90deg,#122818 0%,#234a2b 56%,#7f2f25 130%)!important;
-  border-bottom:1px solid rgba(242,201,76,.42)!important;
-}
-.brand-emblem,.nav-emblem,.brand-sub,.nav-brand-sub,.page-hero-eyebrow,.section-label,
-.nav-link.active,.mobile-nav-link.active,.mobile-menu .nav-link.active{
-  color:var(--client-yellow)!important;
-}
-.nav-link.active,.mobile-nav-link.active,.mobile-menu .nav-link.active{
-  background:rgba(200,107,34,.22)!important;
-  border-color:rgba(242,201,76,.5)!important;
-}
-.nav-link:hover,.mobile-nav-link:hover,.mobile-menu .nav-link:hover{
-  color:#fff!important;
-  background:rgba(200,107,34,.17)!important;
-}
-.btn-primary,.hero-cta-primary,.primary-btn,.cta-primary,.tour-btn-primary,
-button.primary,.resource-icon,.profile-avatar,.filter-btn.active,.stop-btn.active,
-.progress-dot.active,.scene-dot.active,.hotspot,.map-marker.active{
-  background:linear-gradient(135deg,var(--client-orange),var(--client-yellow))!important;
-  color:#122818!important;
-  border-color:rgba(242,201,76,.7)!important;
-}
-.btn-primary:hover,.hero-cta-primary:hover,.primary-btn:hover,.cta-primary:hover{
-  background:linear-gradient(135deg,var(--client-red),var(--client-orange))!important;
-  color:#fff!important;
-}
-.page-hero,.hero,.site-footer,.footer,.tour-sidebar,.info-panel,.stop-card,.nearby-card{
-  border-color:rgba(242,201,76,.25)!important;
-}
-.card,.info-card,.resource-card,.profile-card,.feature-card,.quick-card,.route-card,
-.about-card,.tree-card,.stat-card{
-  background-color:var(--client-cream-card)!important;
-  border-top:3px solid var(--client-orange)!important;
-  border-color:rgba(200,107,34,.2) rgba(45,74,50,.15) rgba(45,74,50,.15) rgba(45,74,50,.15)!important;
-}
-a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand){
-  color:#9d4f1e;
-}
-a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
-  color:var(--client-red);
-}
-::selection{background:var(--client-yellow);color:#122818;}
+::selection { background: var(--ref-gold); color: #fff; }
 
+/* --- Light cream navbar (matches reference screenshot) --- */
+.site-header {
+  background: rgba(247,243,235,0.97) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(45,74,50,0.15) !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
+}
 
+.brand-emblem { color: var(--ref-gold) !important; }
+.brand-title  { color: var(--ref-green-deep) !important; }
+.brand-sub    { color: var(--ref-green) !important; opacity: 0.75; }
 
-/* Make home-page number overlay clear for client presentation */
-.hero-stats{
-  gap:.9rem!important;
-  align-items:stretch!important;
+.nav-link {
+  color: rgba(30,45,32,0.75) !important;
 }
-.hero-stats .stat{
-  min-width:132px!important;
-  padding:1rem 1.15rem!important;
-  background:rgba(18,40,24,.78)!important;
-  border:1px solid rgba(242,201,76,.42)!important;
-  border-left:4px solid var(--client-orange)!important;
-  border-radius:12px!important;
-  box-shadow:0 10px 28px rgba(0,0,0,.26)!important;
-  backdrop-filter:blur(6px);
+.nav-link:hover {
+  color: var(--ref-green-deep) !important;
+  background: rgba(45,74,50,0.08) !important;
 }
-.hero-stats .stat-num{
-  color:var(--client-yellow)!important;
-  text-shadow:0 2px 8px rgba(0,0,0,.5)!important;
+.nav-link.active,
+.mobile-nav-link.active {
+  color: var(--ref-green-deep) !important;
+  background: rgba(200,134,10,0.12) !important;
+  border: 1px solid rgba(200,134,10,0.35) !important;
 }
-.hero-stats .stat-label{
-  color:#fff!important;
-  font-weight:700!important;
-  letter-spacing:.08em!important;
-  text-shadow:0 1px 5px rgba(0,0,0,.5)!important;
+
+/* Mobile nav: keep light bg consistent */
+.mobile-nav {
+  background: var(--ref-cream) !important;
+  border-top: 1px solid rgba(45,74,50,0.12) !important;
 }
-.hero-stats .stat-divider{display:none!important;}
+.mobile-nav-link {
+  color: rgba(30,45,32,0.8) !important;
+  border-bottom-color: rgba(45,74,50,0.1) !important;
+}
+
+/* --- Hero & Background: matches bright sunny reference screenshot --- */
+.hero-bg {
+  filter: brightness(0.95) saturate(1.1) !important;
+  background-position: center 30% !important;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(247,243,235,0.35) 0%,
+    rgba(247,243,235,0.15) 45%,
+    rgba(20,37,21,0.45) 100%
+  ) !important;
+}
+
+/* --- Hero content & typography matching screenshot 1 --- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem 4rem !important;
+}
+
+.hero-eyebrow {
+  color: var(--ref-green) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 1rem !important;
+}
+.hero-eyebrow::before {
+  background: var(--ref-green) !important;
+  width: 24px !important;
+  opacity: 0.7;
+}
+
+.hero-title {
+  color: var(--ref-green-deep) !important;
+  font-size: clamp(2.8rem, 6vw, 4.8rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.hero-subtitle {
+  color: var(--ref-green) !important;
+  font-style: italic !important;
+  font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+  font-weight: 400 !important;
+  margin-bottom: 1.75rem !important;
+  opacity: 0.9;
+}
+
+/* --- Hero desc box: translucent rounded card matching screenshot 1 --- */
+.hero-desc {
+  background: rgba(247, 243, 235, 0.88) !important;
+  color: #2c382e !important;
+  border-radius: 8px !important;
+  padding: 1.25rem 1.5rem !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(45, 74, 50, 0.18) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+  max-width: 580px !important;
+  font-size: 0.96rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* --- Buttons matching screenshot 1 --- */
+.hero-actions {
+  display: flex !important;
+  gap: 1rem !important;
+  align-items: center !important;
+  margin-bottom: 3.5rem !important;
+}
+
+.btn-primary {
+  background: #f2a619 !important;
+  color: #1a221a !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.8rem 1.8rem !important;
+  box-shadow: 0 4px 12px rgba(242, 166, 25, 0.35) !important;
+}
+.btn-primary:hover {
+  background: #e09610 !important;
+  color: #000 !important;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: rgba(247, 243, 235, 0.92) !important;
+  color: #1a221a !important;
+  border: 1px solid rgba(45, 74, 50, 0.25) !important;
+  border-radius: 6px !important;
+  padding: 0.8rem 1.8rem !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+.btn-ghost:hover {
+  background: #fff !important;
+  color: var(--ref-green-deep) !important;
+  border-color: var(--ref-green) !important;
+}
+
+/* --- Pastel stat boxes exactly matching screenshot 1 --- */
+.hero-stats {
+  display: flex !important;
+  gap: 0.9rem !important;
+  align-items: stretch !important;
+  flex-wrap: wrap !important;
+}
+
+.hero-stats .stat-divider { display: none !important; }
+
+.hero-stats .stat {
+  min-width: 130px !important;
+  padding: 0.85rem 1.25rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/* Card 1: Warm pale yellow */
+.hero-stats .stat:nth-child(1) {
+  background: #fff7d6 !important;
+  border: 1.5px solid #f2e29f !important;
+}
+/* Card 2: Soft powder blue */
+.hero-stats .stat:nth-child(3) {
+  background: #dff1fc !important;
+  border: 1.5px solid #bce1f7 !important;
+}
+/* Card 3: Soft sky/cyan blue */
+.hero-stats .stat:nth-child(5) {
+  background: #d8edf7 !important;
+  border: 1.5px solid #b3d9ec !important;
+}
+/* Card 4: Soft pale peach/cream */
+.hero-stats .stat:nth-child(7) {
+  background: #ffeedb !important;
+  border: 1.5px solid #f7d8bc !important;
+}
+
+.hero-stats .stat-num {
+  color: #142515 !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
+  font-family: var(--font-display) !important;
+}
+
+.hero-stats .stat-label {
+  color: #3b523f !important;
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-top: 5px !important;
+  text-shadow: none !important;
+}
+
+.hero-scroll-hint {
+  color: #2d4a32 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+}
+.hero-scroll-hint:hover {
+  color: #142515 !important;
+}
+
+/* --- Info cards: left-border accent (reference style) --- */
+.info-card, .resource-card, .profile-card {
+  background: var(--ref-cream-card) !important;
+  border-top: none !important;
+  border-left: 4px solid var(--ref-green) !important;
+  border-color: rgba(45,74,50,0.18) !important;
+  border-left-color: var(--ref-green) !important;
+}
+
+.info-card:nth-child(even),
+.resource-card:nth-child(even) {
+  border-left-color: #7a4fad !important;
+}
+
+/* --- Section labels stay gold --- */
+.section-label, .page-hero-eyebrow {
+  color: var(--ref-gold) !important;
+}
+.section-label::before, .page-hero-eyebrow::before {
+  background: var(--ref-gold) !important;
+}
+
+/* --- Links --- */
+a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand) {
+  color: var(--ref-green);
+}
+a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover {
+  color: var(--ref-orange);
+}
 
 </style>
 </head>
@@ -1380,17 +1549,18 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
   <!-- NAVIGATION -->
   <header class="site-header">
     <div class="header-inner">
-      <div class="header-brand">
+      <a href="index.html" class="header-brand">
         <div class="brand-emblem">✦</div>
         <div class="brand-text">
           <span class="brand-title">Avenue of Honour</span>
           <span class="brand-sub">Kingston Avenue of Honour</span>
         </div>
-      </div>
+      </a>
       <nav class="header-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html" class="nav-link active">Home</a>
         <a href="virtual-tour.html" class="nav-link">360° Virtual Tour</a>
+        <a href="tree-map.html" class="nav-link">Tree Map</a>
+        <a href="about.html" class="nav-link">About</a>
         <a href="profiles.html" class="nav-link">Profiles</a>
         <a href="resources.html" class="nav-link">Resources</a>
       </nav>
@@ -1399,9 +1569,10 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
       </button>
     </div>
     <div class="mobile-nav" id="mobileNav">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="index.html" class="mobile-nav-link active">Home</a>
       <a href="virtual-tour.html" class="mobile-nav-link">360° Virtual Tour</a>
+      <a href="tree-map.html" class="mobile-nav-link">Tree Map</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
       <a href="profiles.html" class="mobile-nav-link">Profiles</a>
       <a href="resources.html" class="mobile-nav-link">Resources</a>
     </div>
