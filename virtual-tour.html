@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
-    :root{--gd:#142515;--gm:#315d35;--gl:#6f8f3a;--gold:#d08a1f;--goldl:#f2c94c;--orange:#c86b22;--autumn-red:#a63a2a;--leaf-green:#4f7d3a;--r:6px;--rl:12px;--nh:68px;--fd:'Playfair Display',Georgia,serif;--fb:'Source Serif 4',Georgia,serif;}
+    :root{--gd:#4a6230;--gm:#315d35;--gl:#6f8f3a;--gold:#d08a1f;--goldl:#f2c94c;--orange:#c86b22;--autumn-red:#a63a2a;--leaf-green:#4f7d3a;--r:6px;--rl:12px;--nh:68px;--fd:'Playfair Display',Georgia,serif;--fb:'Source Serif 4',Georgia,serif;}
 
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;overflow:hidden;background:#0d1a10;}
+html,body{height:100%;overflow:hidden;background:#4a6230;}
 
-.site-nav{position:fixed;top:0;left:0;right:0;height:var(--nh);z-index:2000;background:rgba(26,46,31,0.97);border-bottom:1px solid rgba(184,133,42,0.3);}
+.site-nav{position:fixed;top:0;left:0;right:0;height:var(--nh);z-index:2000;background:rgba(74,98,48,0.97);border-bottom:1px solid rgba(184,133,42,0.3);}
 .nav-inner{max-width:1400px;margin:0 auto;padding:0 2rem;height:var(--nh);display:flex;align-items:center;gap:1rem;}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
 .nav-emblem{color:var(--gold);font-size:20px;line-height:1;}
@@ -37,7 +37,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 @media(min-width:769px){.nav-toggle{display:none!important;}.mobile-menu:not(.open){display:none!important;}}
 
 /* Stops bar */
-.stops-bar{position:fixed;top:var(--nh);left:0;right:0;z-index:1000;background:rgba(15,28,17,0.96);border-bottom:1px solid rgba(184,133,42,0.2);padding:0 1.5rem;height:48px;display:flex;align-items:center;gap:1.25rem;}
+.stops-bar{position:fixed;top:var(--nh);left:0;right:0;z-index:1000;background:rgba(58,85,32,0.96);border-bottom:1px solid rgba(184,133,42,0.2);padding:0 1.5rem;height:48px;display:flex;align-items:center;gap:1.25rem;}
 .stops-label{color:rgba(255,255,255,0.45);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
 .stops-divider{width:1px;height:20px;background:rgba(255,255,255,0.12);flex-shrink:0;}
 .stop-btn{display:flex;align-items:center;gap:8px;padding:0.3rem 0.875rem 0.3rem 0.5rem;border-radius:20px;border:1.5px solid rgba(184,133,42,0.3);background:transparent;color:rgba(255,255,255,0.65);font-size:13px;cursor:pointer;transition:all 0.2s;font-family:var(--fb);white-space:nowrap;}
@@ -53,12 +53,12 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 .pnlm-panorama-info{display:none!important;}
 .pnlm-controls{bottom:2.5rem!important;right:1.5rem!important;top:auto!important;}
 .pnlm-zoom-controls{display:flex!important;flex-direction:column;gap:4px;}
-.pnlm-zoom-in,.pnlm-zoom-out{background:rgba(26,46,31,0.88)!important;border:1px solid rgba(184,133,42,0.35)!important;color:var(--goldl)!important;width:36px!important;height:36px!important;border-radius:var(--r)!important;cursor:pointer;transition:all 0.2s;}
-.pnlm-zoom-in:hover,.pnlm-zoom-out:hover{background:rgba(45,74,50,0.95)!important;}
-.pnlm-fullscreen-toggle-button{background:rgba(26,46,31,0.88)!important;border:1px solid rgba(184,133,42,0.35)!important;width:36px!important;height:36px!important;border-radius:var(--r)!important;}
+.pnlm-zoom-in,.pnlm-zoom-out{background:rgba(74,98,48,0.88)!important;border:1px solid rgba(184,133,42,0.35)!important;color:var(--goldl)!important;width:36px!important;height:36px!important;border-radius:var(--r)!important;cursor:pointer;transition:all 0.2s;}
+.pnlm-zoom-in:hover,.pnlm-zoom-out:hover{background:rgba(91,117,62,0.95)!important;}
+.pnlm-fullscreen-toggle-button{background:rgba(74,98,48,0.88)!important;border:1px solid rgba(184,133,42,0.35)!important;width:36px!important;height:36px!important;border-radius:var(--r)!important;}
 
 /* Info panel */
-.info-panel{position:fixed;bottom:1.1rem;left:1.5rem;z-index:510;width:300px;background:rgba(15,28,17,0.92);border:1px solid rgba(184,133,42,0.3);border-radius:var(--rl);overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all 0.3s;}
+.info-panel{position:fixed;bottom:1.1rem;left:1.5rem;z-index:510;width:300px;background:rgba(58,85,32,0.92);border:1px solid rgba(184,133,42,0.3);border-radius:var(--rl);overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all 0.3s;}
 .info-panel.collapsed .panel-body{display:none;}
 .panel-header{padding:1rem 1.25rem;cursor:pointer;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid rgba(184,133,42,0.15);}
 .panel-icon{font-size:22px;flex-shrink:0;}
@@ -75,12 +75,12 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 .panel-link-icon{font-size:14px;flex-shrink:0;}
 
 /* Drag hint */
-.drag-hint{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:600;background:rgba(15,28,17,0.9);color:rgba(255,255,255,0.8);font-size:13px;font-family:var(--fb);padding:0.5rem 1.4rem;border-radius:24px;border:1px solid rgba(184,133,42,0.3);white-space:nowrap;pointer-events:none;animation:hintFade 1s ease 4s forwards;}
+.drag-hint{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:600;background:rgba(58,85,32,0.9);color:rgba(255,255,255,0.8);font-size:13px;font-family:var(--fb);padding:0.5rem 1.4rem;border-radius:24px;border:1px solid rgba(184,133,42,0.3);white-space:nowrap;pointer-events:none;animation:hintFade 1s ease 4s forwards;}
 @keyframes hintFade{to{opacity:0;pointer-events:none;}}
 
 /* Fullscreen button */
-.fs-btn{position:fixed;bottom:2rem;right:2rem;z-index:500;width:40px;height:40px;border-radius:var(--r);background:rgba(15,28,17,0.88);border:1px solid rgba(184,133,42,0.35);color:var(--goldl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.2s;}
-.fs-btn:hover{background:rgba(45,74,50,0.95);}
+.fs-btn{position:fixed;bottom:2rem;right:2rem;z-index:500;width:40px;height:40px;border-radius:var(--r);background:rgba(58,85,32,0.88);border:1px solid rgba(184,133,42,0.35);color:var(--goldl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.2s;}
+.fs-btn:hover{background:rgba(91,117,62,0.95);}
 
 /* In-panorama scene hotspots — clickable "walk to next stop" arrows */
 /* 360 tour-style ground navigation chevron — sits flat on the road
@@ -99,7 +99,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 .sv-compass{
   position:fixed;top:calc(var(--nh) + 22px);right:24px;z-index:650;
   width:62px;height:62px;border-radius:50%;
-  background:rgba(15,28,17,0.86);
+  background:rgba(58,85,32,0.86);
   border:1.5px solid rgba(184,133,42,0.45);
   box-shadow:0 6px 20px rgba(0,0,0,0.4);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
@@ -131,7 +131,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 .sv-compass-hub{
   position:absolute;left:50%;top:50%;width:7px;height:7px;
   background:var(--goldl);border-radius:50%;
-  transform:translate(-50%,-50%);box-shadow:0 0 0 2px rgba(15,28,17,0.9);
+  transform:translate(-50%,-50%);box-shadow:0 0 0 2px rgba(58,85,32,0.9);
 }
 
 /* â”€â”€ Vertical zoom + reset pill (right side, below compass) â”€â”€ */
@@ -141,7 +141,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 }
 .sv-ctrl-btn{
   width:42px;height:42px;border-radius:var(--r);
-  background:rgba(15,28,17,0.86);
+  background:rgba(58,85,32,0.86);
   border:1.5px solid rgba(184,133,42,0.4);
   color:var(--goldl);font-size:20px;line-height:1;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
@@ -149,7 +149,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
   box-shadow:0 4px 14px rgba(0,0,0,0.32);
   transition:all 0.18s;font-family:var(--fb);
 }
-.sv-ctrl-btn:hover{background:rgba(45,74,50,0.95);border-color:rgba(212,168,75,0.8);color:#fff;}
+.sv-ctrl-btn:hover{background:rgba(91,117,62,0.95);border-color:rgba(212,168,75,0.8);color:#fff;}
 .sv-ctrl-btn:active{transform:scale(0.93);}
 .sv-ctrl-btn.reset{font-size:15px;}
 
@@ -157,7 +157,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 .sv-nav-hud{
   position:fixed;bottom:1.75rem;left:50%;transform:translateX(-50%);
   z-index:600;display:flex;align-items:stretch;gap:0;
-  background:rgba(15,28,17,0.9);
+  background:rgba(58,85,32,0.9);
   border:1.5px solid rgba(184,133,42,0.35);
   border-radius:30px;
   box-shadow:0 8px 26px rgba(0,0,0,0.42);
@@ -170,7 +170,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
   display:flex;align-items:center;justify-content:center;
   transition:background 0.18s, color 0.18s;
 }
-.sv-nav-arrow:hover:not(:disabled){background:rgba(45,74,50,0.85);color:#fff;}
+.sv-nav-arrow:hover:not(:disabled){background:rgba(91,117,62,0.85);color:#fff;}
 .sv-nav-arrow:disabled{opacity:0.28;cursor:default;}
 .sv-nav-center{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -239,8 +239,8 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 
 .tree-hotspot,
 .pnlm-hotspot.tree-hotspot {
-    width: 26px !important;
-    height: 26px !important;
+    width: 34px !important;
+    height: 34px !important;
 
     margin-left: -17px !important;
     margin-top: -17px !important;
@@ -274,8 +274,8 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
    ========================================= */
 
 .tree-hotspot-number {
-    width: 24px !important;
-    height: 24px !important;
+    width: 32px !important;
+    height: 32px !important;
 
     border-radius: 50% !important;
 
@@ -290,7 +290,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
     color: #ffffff !important;
 
     font-family: Arial, sans-serif !important;
-    font-size: 9px !important;
+    font-size: 12px !important;
     font-weight: 700 !important;
 
     line-height: 1 !important;
@@ -367,7 +367,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 
     padding: 6px 10px !important;
 
-    background: rgba(15,28,17,0.96) !important;
+    background: rgba(58,85,32,0.96) !important;
 
     border: 1px solid rgba(184,133,42,0.55) !important;
 
@@ -435,7 +435,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 
 /* Tooltip label shown on hover (Pannellum auto-injects tooltip span) */
 .pnlm-tooltip span{
-  background:rgba(15,28,17,0.95) !important;
+  background:rgba(58,85,32,0.95) !important;
   color:#fff !important;
   border:1px solid rgba(184,133,42,0.5) !important;
   border-radius:var(--r) !important;
@@ -449,7 +449,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 /* â”€â”€â”€â”€â”€â”€ SOLDIER PROFILE CARD (modal that opens on tree click) â”€â”€â”€â”€â”€â”€ */
 .soldier-overlay{
   position:fixed;inset:0;z-index:3000;
-  background:rgba(13,26,16,0.7);
+  background:rgba(58,85,32,0.7);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   display:flex;align-items:center;justify-content:center;padding:1rem;
   opacity:0;visibility:hidden;transition:opacity 0.25s, visibility 0.25s;
@@ -467,7 +467,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 }
 .soldier-overlay.open .soldier-card{transform:translateY(0) scale(1);}
 .soldier-card-head{
-  background:linear-gradient(135deg, #1a2e1f 0%, #2d4a32 100%);
+  background:linear-gradient(135deg, #4a6230 0%, #668a42 100%);
   padding:1.5rem 1.5rem 1.25rem;
   border-radius:var(--rl) var(--rl) 0 0;
   position:relative;
@@ -595,7 +595,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 .sv-filmstrip{
   position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
   z-index:600;display:flex;align-items:center;gap:8px;
-  background:rgba(15,28,17,0.86);
+  background:rgba(58,85,32,0.86);
   border:1px solid rgba(184,133,42,0.3);
   border-radius:14px;padding:8px 10px;
   box-shadow:0 8px 28px rgba(0,0,0,0.45);
@@ -633,7 +633,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
 }
 
 /* Address bar (360 tour style) */
-.address-bar{position:fixed;top:calc(var(--nh) + 60px);left:24px;z-index:500;background:rgba(15,28,17,0.92);border:1px solid rgba(184,133,42,0.35);border-radius:var(--rl);padding:0.75rem 1.1rem;color:#fff;font-family:var(--fb);font-size:14px;line-height:1.45;box-shadow:0 4px 16px rgba(0,0,0,0.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);max-width:300px;}
+.address-bar{position:fixed;top:calc(var(--nh) + 60px);left:24px;z-index:500;background:rgba(58,85,32,0.92);border:1px solid rgba(184,133,42,0.35);border-radius:var(--rl);padding:0.75rem 1.1rem;color:#fff;font-family:var(--fb);font-size:14px;line-height:1.45;box-shadow:0 4px 16px rgba(0,0,0,0.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);max-width:300px;}
 .address-bar-label{display:flex;align-items:center;gap:6px;color:var(--goldl);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
 .address-bar-icon{display:inline-block;width:14px;height:14px;background:var(--gold);border-radius:50% 50% 50% 0;transform:rotate(-45deg);position:relative;}
 .address-bar-icon::after{content:'';position:absolute;top:4px;left:4px;width:6px;height:6px;border-radius:50%;background:#fff;}
@@ -675,7 +675,7 @@ html,body{height:100%;overflow:hidden;background:#0d1a10;}
   
 
 
-.nearby-card{position:fixed;right:1.5rem;bottom:6.4rem;z-index:540;width:310px;background:rgba(15,28,17,0.92);border:1px solid rgba(184,133,42,0.38);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;}
+.nearby-card{position:fixed;right:1.5rem;bottom:6.4rem;z-index:540;width:310px;background:rgba(58,85,32,0.92);border:1px solid rgba(184,133,42,0.38);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;}
 .nearby-head{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-bottom:1px solid rgba(184,133,42,.18);}
 .nearby-title{font-family:var(--fd);font-size:1rem;color:#fff;font-weight:700;}
 .nearby-sub{font-size:10px;color:var(--goldl);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
@@ -1220,7 +1220,7 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
         stop: 'Avenue Midway Point — Along Kingston Road',
         desc: 'A short walk south from the memorial stone, deep among the Dutch Elms. Each tree on either side of the road bears the name of someone from the former Shire of Creswick who served in the Great War.',
         panorama: STOP2_IMG,
-        hfov: 100, pitch: 0, yaw: 0
+        hfov: 100, pitch: 8, yaw: 175
       },
       {
         name: 'Avenue Heart',
@@ -1263,189 +1263,13 @@ a:not(.nav-link):not(.btn):not(.header-brand):not(.nav-brand):hover{
     // will use those pitch/yaw values instead of the auto-calculated
     // ones. Use ?dev in the URL to click a tree and capture exact
     // coordinates, then add an override entry.
-        var TREE_HOTSPOT_OVERRIDES = {
-                                      // STOP 1 positions are hardcoded in buildTreeHotspots()
-        // STOP 2
-        28: { stop: 2, pitch: 4.34, yaw: -84.84 },
-        29: { stop: 2, pitch: 7.27, yaw: 80.62 },
-        // STOP 3
-        180: { stop: 3, pitch:  6.21, yaw: -13.01 },
-        228: { stop: 3, pitch:  6.21, yaw: 108.28 },
-         64: { stop: 3, pitch:  2.70, yaw:   3.98 },
-         82: { stop: 3, pitch: -1.99, yaw:  58.48 },
-         81: { stop: 3, pitch:  3.87, yaw:  46.17 },
-        // STOP 4
-      16:  { stop: 4, pitch:  8.26, yaw: -73.21 },
-      20:  { stop: 4, pitch: 11.78, yaw:  10.28 },
-      19:  { stop: 4, pitch:  8.50, yaw:  46.20 },
-      50:  { stop: 4, pitch:  2.52, yaw:  51.90 },
-      145: { stop: 4, pitch:  2.70, yaw:  72.80 },
-      195: { stop: 4, pitch:  9.14, yaw:  39.73 },
-      126: { stop: 4, pitch:  1.69, yaw:  78.34 },
-      165: { stop: 4, pitch:  2.99, yaw:  95.10 },
-      66:  { stop: 4, pitch:  2.99, yaw: 124.98 },
-      100: { stop: 4, pitch:  1.23, yaw: 176.84 },
-      // STOP 5
-      22:  { stop: 5, pitch: 4.20, yaw: -41.64 },
-      24:  { stop: 5, pitch: 5.20, yaw: -10.81 },
-      42:  { stop: 5, pitch: 3.20, yaw:  72.20 },
-      146: { stop: 5, pitch: 2.20, yaw: 107.50 },
-      73:  { stop: 5, pitch: 6.00, yaw: 121.00 },
-      23:  { stop: 5, pitch: 4.50, yaw:  40.58 },
-      51:  { stop: 5, pitch: 4.50, yaw:  78.70 },
-      149: { stop: 5, pitch: 3.00, yaw:  85.00 },
-      55:  { stop: 5, pitch: 5.00, yaw: 112.50 },
-      56:  { stop: 5, pitch: 8.50, yaw: 139.40 }
-    };
+      
 
-    function buildTreeHotspots() {
-      if (typeof TREES === 'undefined' || !TREES.length) {
-        console.warn('TREES not loaded — tree hotspots disabled.');
-        var emptyStops = {}; for (var s = 1; s <= SCENES.length; s++) emptyStops['stop' + s] = []; return emptyStops;
-      }
 
-      var nStops = SCENES.length;
-      var result = {
-      // STOP 1: 10 tree hotspots (East: 1-5, West: 6-10)
+// Hotspot positions and profile assignments come from script.js.
+// Every hotspot uses its correct East/West tree number.
+var TREE_HOTSPOTS = AVENUE_HOTSPOTS;
 
-      stop1: [
-
-        { treeId: 199, pitch:  9.30, yaw:    7.20, number: '1'  },  // E1  - Parkin, John (center of tree)
-
-        { treeId:   2, pitch:  7.38, yaw:   11.95, number: '2'  },  // E2  - Allen, William Robert
-
-        { treeId:   6, pitch:  5.86, yaw:   17.11, number: '3'  },  // E3  - Archibald, Ernest Ormond
-
-        { treeId:   8, pitch:  4.92, yaw:   20.39, number: '4'  },  // E4  - Archibald, James Lindsay
-
-        { treeId:  58, pitch:  4.22, yaw:   22.50, number: '5'  },  // E5  - Carey, David
-
-        { treeId: 158, pitch:  9.14, yaw:   54.96, number: '6'  },  // W1  - McKinnon, Andrew
-
-        { treeId: 160, pitch:  9.14, yaw:   40.08, number: '7'  },  // W2  - McKinnon, Norman
-
-        { treeId:  21, pitch:  6.80, yaw:   34.69, number: '8'  },  // W3  - Baker, Charles Thomas
-
-        { treeId:  23, pitch:  5.39, yaw:   31.52, number: '9'  },  // W4  - Baker, John Alfred
-
-        { treeId:  30, pitch:  4.45, yaw:   29.18, number: '10' }  // W5  - Betts, Ernest Alfred
-
-      ],
-
-
-
-      // STOP 2: 10 tree hotspots (East: 11-15, West: 16-20)
-
-      stop2: [
-
-        { treeId: 150, pitch:  7.97, yaw:  -37.03, number: '11' },  // E6  - McDonald, Thomas Alexander
-
-        { treeId: 175, pitch:  5.04, yaw:  -18.28, number: '12' },  // E7  - May, Henry Vickery
-
-        { treeId: 174, pitch:  3.87, yaw:  -10.08, number: '13' },  // E8  - May, Douglas George
-
-        { treeId: 173, pitch:  3.05, yaw:   -5.98, number: '14' },  // E9  - May, Archie
-
-        { treeId: 169, pitch:  2.34, yaw:   -3.05, number: '15' },  // E10 - Marshall, Robert Henry
-
-        { treeId:  63, pitch:  6.80, yaw:   43.83, number: '16' },  // W6  - Clark, Herbert
-
-        { treeId:  37, pitch:  5.62, yaw:   28.01, number: '17' },  // W7  - Bourke, John Thomas
-
-        { treeId: 170, pitch:  4.69, yaw:   20.98, number: '18' },  // W8  - Martin, Alanson Matthew Post
-
-        { treeId: 143, pitch:  3.87, yaw:   16.29, number: '19' },  // W9  - Kenneally, John Henry
-
-        { treeId: 142, pitch:  3.05, yaw:   12.77, number: '20' }  // W10 - Kenneally, James
-
-      ],
-
-
-
-      // STOP 3: 5 tree hotspots (East: 21-22 = E11-E12, West: 23-25 = W11-W13)
-
-      stop3: [
-
-        { treeId: 168, pitch:  6.21, yaw:  -13.01, number: '21' },  // E11 - Marshall, Albert Charles
-
-        { treeId: 244, pitch:  2.70, yaw:    3.98, number: '22' },  // E12 - Vague, Felix
-
-        { treeId:  84, pitch:  3.87, yaw:   46.17, number: '23' },  // W11 - Drury, Frederick George
-
-        { treeId: 186, pitch: -1.99, yaw:   58.48, number: '24' },  // W12 - Mitchell, William Edward
-
-        { treeId: 184, pitch:  6.21, yaw:  108.28, number: '25' }  // W13 - Mitchell, Francis Theodore
-
-      ],
-
-
-
-      // STOP 4: 10 tree hotspots (West: 26-30 = W14-W17+E13, East: 31-35 = W18+E14-E17)
-
-      stop4: [
-
-        { treeId: 185, pitch:  8.26, yaw:  -73.21, number: '26' },  // W14 - Mitchell, Herbert
-
-        { treeId: 151, pitch: 11.78, yaw:   10.28, number: '27' },  // W15 - McFarlane, William Henry
-
-        { treeId:  47, pitch:  8.50, yaw:   46.20, number: '28' },  // W16 - Brinsden, Gilbert Joseph
-
-        { treeId:  28, pitch:  2.52, yaw:   51.90, number: '29' },  // W17 - Beasley, Frederick James
-
-        { treeId: 139, pitch:  2.70, yaw:   72.80, number: '30' },  // E13 - Kay, Percival Mark
-
-        { treeId:  54, pitch:  9.14, yaw:   39.73, number: '31' },  // W18 - Caldwell, Robert
-
-        { treeId: 140, pitch:  1.69, yaw:   78.34, number: '32' },  // E14 - Kay, Thomas Dominick
-
-        { treeId: 147, pitch:  2.99, yaw:   95.10, number: '33' },  // E15 - McAndrew, Ivor Collis
-
-        { treeId: 148, pitch:  2.99, yaw:  124.98, number: '34' },  // E16 - McAndrew, Ormond Victor George
-
-        { treeId:  39, pitch:  1.23, yaw:  176.84, number: '35' }  // E17 - Boustead, Albert Gordon
-
-      ],
-
-
-
-      // STOP 5: 10 tree hotspots (East: 36-38,41-43 = E18-E23, West: 39-40,44-45 = W19-W22)
-
-      stop5: [
-
-        { treeId:  40, pitch:  4.20, yaw:  -41.64, number: '36' },  // E18 - Boustead, Howard Wellesley
-
-        { treeId:   3, pitch:  5.20, yaw:  -10.81, number: '37' },  // E19 - Anderson, Gordon Thomas
-
-        { treeId:   5, pitch:  3.20, yaw:   72.20, number: '38' },  // E20 - Anderson, Stanley Richard
-
-        { treeId:  52, pitch:  2.20, yaw:  107.50, number: '39' },  // W19 - Caldwell, Alexander
-
-        { treeId: 132, pitch:  6.00, yaw:  121.00, number: '40' },  // W20 - Johannsen, Rupert Claude
-
-        { treeId:  35, pitch:  4.50, yaw:   40.58, number: '41' },  // E21 - Booth, Arthur Charles
-
-        { treeId:  34, pitch:  4.50, yaw:   78.70, number: '42' },  // E22 - Bolton, Thomas
-
-        { treeId: 203, pitch:  3.00, yaw:   85.00, number: '43' },  // E23 - Peters, William James
-
-        { treeId: 131, pitch:  5.00, yaw:  112.50, number: '44' },  // W21 - Johannsen, Peter Norman
-
-        { treeId: 130, pitch:  8.50, yaw:  139.40, number: '45' }  // W22 - Johannsen, Henry Niemen
-
-      ]
-
-      };
-
-      // All trees now explicitly assigned across stops 1-5
-      var assignedTreeIds = [];
-      for (var s = 1; s <= 5; s++) {
-        result['stop' + s].forEach(function(h) { assignedTreeIds.push(h.treeId); });
-      }
-
-      return result;
-    }
-
-    var TREE_HOTSPOTS = buildTreeHotspots();
 
 
 function createTreeNumberHotspot(hotSpotDiv, args) {
